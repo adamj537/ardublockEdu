@@ -1,0 +1,121 @@
+						Documentation
+						--------------
+Didier Carne
+LGT Champollion - Figeac
+dcarne@ac-toulouse.fr
+--------------
+
+HOW TO CREATE A NEW BLOCK
+-------------------------
+
+Files to change
+--------------------
+1- "ardublock.xml" 				in 		src/main/resources/com/ardublock/block
+	contains a description of the GUI module
+	contains its location in a menu
+2- "ardublock.properties"		in 		src/main/resources/com/ardublock/block
+	contains the definition text to display in the GUI
+3- "ardublock_fr.properties"	in 		src/main/resources/com/ardublock/block
+	contains the definition text to display in the GUI in French
+4- "TranslatorBlockFactory"		in 		src/main/java/com/ardublock/translator/block
+	to associate the code to generate with the GUI module
+	
+Files to create
+----------------
+1- create a class in a java file in		src/main/java/com/ardublock/translator/block
+	creates the code to be generated for the module
+
+===================================================================================
+
+Changes and ADDS in A FILE
+-----------------------------------------------
+
+	1- ardublock.xml
+
+	a) In the "BlockGenuses" section, add a "BlockGenus":
+		with "name" used to identify the block, used in the filer "TranslatorBlockFactory"
+		with "kind" which defines the type of GUI
+		with "initlabel" which sets the text to display in the module
+		then put a "BlockConnector" for setting the I/O of the module
+		then put a reference to a picture, if necessary:
+		com/ardublock/block/champodc/DFR0009-100x100.jpg
+	
+	b) In the "BlockFamilies" section, place the created module in a menu, or create a new menu if necessary.
+
+		add in ardublock.xml
+		------------------
+
+		and lower
+
+				  df_lcd_keypad
+
+		 in ardublock.properties
+		 -------------------------
+		 
+			bd.champo=CHAMPOL
+			
+		 in TranslatorBlockFactory
+		 ---------------------------
+		 
+			//CHAMPOL
+			if (blockName.equals .....
+ 	
+ 	2 - ardublock.properties
+
+		as for the menu, add:
+		bg.df_lcd_keypad=DFRobot LCD Keypad
+		and any other useful definitions
+
+	3 - ardublock_fr.properties
+
+		put the French translation if necessary
+
+ 	
+CREATING A FILE
+---------------------
+
+We need to create the class corresponding to new module
+in    src/main/java/com/ardublock/translator/block 
+or in src/main/java/com/ardublock/translator/block/champol
+or ...
+
+make new>class
+give a name for the class
+and build it.
+
+see other class definitions
+below is an example for the LCD Display
+
+import com.ardublock.translator.Translator;
+import com.ardublock.translator.block.exception.SocketNullException;
+import com.ardublock.translator.block.LCDKeypad; // if reference to another class
+import com.ardublock.translator.block.TranslatorBlock;
+
+public class DfrobotLCDKeypadBlock extends TranslatorBlock //LCDKeypad if reference to the class LCDkeypad
+{
+	public DfrobotLCDKeypadBlock(Long blockId, Translator translator)
+	{
+		super(blockId, translator);
+	}
+
+	@Override
+	public String toCode() throws SocketNullException
+	{
+		// to define include and global var, see below
+		setupWireEnvironment(translator); 
+		// recovery module parameters, here the message placed in row 0
+		// So we write the code to generate
+		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0, "lcd.print( ", " );\n");
+		// creating the text of the code
+		String ret = translatorBlock.toCode();
+		return ret;
+	}
+	
+	public static void setupWireEnvironment(Translator t)
+	{
+		// text for include
+		t.addHeaderFile("LiquidCrystal.h");
+		// setup code
+		t.addDefinitionCommand("LiquidCrystal lcd(12, 11, 5, 4, 3, 2);");
+	}
+}
