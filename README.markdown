@@ -40,18 +40,14 @@ copy the target/ardublock-all.jar to Arduino\tools\ArduBlockTool\tool
 
 Authors
 ----
-* David Li taweili@gmail.com
-* HE Qichen heqichen@gmail.com
-
+* Adam Johnson adamj537@gmail.com
 
 ToDo
 ----
-* Integrate the [scripting engine](http://java.sun.com/developer/technicalArticles/J2SE/Desktop/scripting/) into the language blocks for code generation
+* Everything...this fork is less than a week old :)
 
 License
 ----
-
-Copyright (C) 2011 David Li and He Qichen
 
 This file is part of ArduBlock.
 
