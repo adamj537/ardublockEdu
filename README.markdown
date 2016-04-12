@@ -2,7 +2,7 @@ ArduBlock Education Edition
 ======
 
 ArduBlock is a Block Programming Language for Arduino. The language and functions model closely to [Arduino Language Reference](http://arduino.cc/en/Reference/HomePage).
-This version of ArduBlock is tweaked to more closely resemble the Arduino language, and is meant to teach kids the programming basics before transitioning to C or C++.
+This version of ArduBlock is tweaked to more closely resemble the Arduino language, and is meant to teach kids programming basics before transitioning to C or C++.
 Some of the changes:
 * TODO:  Block names match the [Arduino Language Reference](http://arduino.cc/en/Reference/HomePage) as much as possible.  For example, the original ArduBlock had a block called "repeat"; this version has a block named "for" - this way kids will get to know the concept of a for loop.
 * TODO:  Code produced is as human-readable as possible.  Variable or function names aren't changed unless absolutely necessary.  All code is indented four spaces.

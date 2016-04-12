@@ -110,9 +110,6 @@ public class Context
 		// Style list
 		List<String[]> list = new ArrayList<String[]>();
 		String[][] styles = {};
-		
-		//		{ "//BlockGenus[@name[starts-with(.,\"Tinker\")]]/@color", "128 0 0" },
-		//		{ "//BlockGenus[@name[starts-with(.,\"df_\")]]/@color",	"0 128 0" } };
 
 		for (String[] style : styles) {
 			list.add(style);
@@ -134,45 +131,6 @@ public class Context
 	
 	private void loadDefaultArdublockProgram()
 	{
-		/*
-		InputStream defaultArdublockProgram = this.getClass().getResourceAsStream(DEFAULT_ARDUBLOCK_PROGRAM_PATH);
-		
-		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        final DocumentBuilder builder;
-        final Document doc;
-		try
-		{
-			builder = factory.newDocumentBuilder();
-			doc = builder.parse(defaultArdublockProgram);
-			final Element projectRoot = doc.getDocumentElement();
-			workspaceController.resetWorkspace();
-			workspaceController.loadProjectFromElement(projectRoot);
-		}
-		catch (ParserConfigurationException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch (SAXException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			workspaceController.loadFreshWorkspace();
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			workspaceController.loadFreshWorkspace();
-		}
-        */
-		
 		Workspace workspace = workspaceController.getWorkspace();
 		Page page = workspace.getPageNamed("Main");
 		
@@ -183,8 +141,6 @@ public class Context
         RenderableBlock renderableBlock = factoryRenderableBlock.createNewInstance();
         renderableBlock.setLocation(100, 100);
         page.addBlock(renderableBlock);
-        
-        
 	}
 	
 	//determine OS

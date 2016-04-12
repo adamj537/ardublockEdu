@@ -47,7 +47,6 @@ public class GenerateCodeButtonListener implements ActionListener
 		
 		Set<RenderableBlock> loopBlockSet = new HashSet<RenderableBlock>();
 		Set<RenderableBlock> subroutineBlockSet = new HashSet<RenderableBlock>();
-		Set<RenderableBlock> scoopBlockSet = new HashSet<RenderableBlock>();
 		Set<RenderableBlock> guinoBlockSet = new HashSet<RenderableBlock>();
 		StringBuilder code = new StringBuilder();
 		
@@ -115,22 +114,6 @@ public class GenerateCodeButtonListener implements ActionListener
 					}
 					subroutineBlockSet.add(renderableBlock);
 				}
-				if (block.getGenusName().equals("scoop_task"))
-				{
-					translator.setScoopProgram(true);
-					scoopBlockSet.add(renderableBlock);
-				}
-				if (block.getGenusName().equals("scoop_loop"))
-				{
-					translator.setScoopProgram(true);
-					scoopBlockSet.add(renderableBlock);
-				}
-				if (block.getGenusName().equals("scoop_pin_event"))
-				{
-					translator.setScoopProgram(true);
-					scoopBlockSet.add(renderableBlock);
-				}
-				
 			}
 		}
 		if (loopBlockSet.size() == 0) {
@@ -155,13 +138,7 @@ public class GenerateCodeButtonListener implements ActionListener
 				Block loopBlock = renderableBlock.getBlock();
 				code.append(translator.translate(loopBlock.getBlockID()));
 			}
-			
-			for (RenderableBlock renderableBlock : scoopBlockSet)
-			{
-				translator.setRootBlockName("scoop");
-				Block scoopBlock = renderableBlock.getBlock();
-				code.append(translator.translate(scoopBlock.getBlockID()));
-			}
+
 			for (RenderableBlock renderableBlock : guinoBlockSet)
 			{
 				translator.setRootBlockName("guino");
