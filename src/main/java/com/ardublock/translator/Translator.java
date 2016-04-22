@@ -1,14 +1,10 @@
 package com.ardublock.translator;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-
-import javax.swing.JOptionPane;
 
 import com.ardublock.translator.adaptor.BlockAdaptor;
 import com.ardublock.translator.adaptor.OpenBlocksAdaptor;
@@ -25,32 +21,20 @@ import edu.mit.blocks.workspace.Workspace;
 
 public class Translator
 {
-	private static final String variablePrefix = "_ABVAR_";
-
-	private Set<String> headerFileSet;
-	private Set<String> definitionSet;
 	private List<String> setupCommand;
-	private List<String> guinoCommand;
-	private Set<String> functionNameSet;
 	private Set<TranslatorBlock> bodyTranslatreFinishCallbackSet;
 	private BlockAdaptor blockAdaptor;
-	
-	private Set<String> inputPinSet;
-	private Set<String> outputPinSet;
-	
-	private Map<String, String> numberVariableSet;
-	private Map<String, String> booleanVariableSet;
-	private Map<String, String> stringVariableSet;
-	private Map<String, Object> internalData;
-	
 	private Workspace workspace;
 	
-	private String rootBlockName;
-	
-	private int variableCnt;
-	private boolean isScoopProgram;
-	private boolean isGuinoProgram;
+	private String rootBlockName;			// block we're constructing ("loop" or "setup")
 
+	private Set<String> headerFileSet;		// header files in the C program
+	private Set<String> definitionSet;		// definitions in the C program
+	private Set<String> inputPinSet;		// input pins in the C program
+	private Set<String> outputPinSet;		// output pins in the C program
+	private Set<String> variableSet;		// variables in the C program
+	private Set<String> functionNameSet;	// functions in the C program
+	
 	public Translator(Workspace ws)
 	{
 		workspace = ws;
@@ -88,7 +72,7 @@ public class Translator
 			headerCommand.append("\n");
 		}
 		
-		return headerCommand.toString() + generateSetupFunction() +generateGuinoFunction();
+		return headerCommand.toString() + generateSetupFunction();
 	}
 	
 	public String generateSetupFunction()
@@ -100,14 +84,14 @@ public class Translator
 		{
 			for (String pinNumber:inputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , INPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", INPUT);\n");
 			}
 		}
 		if (!outputPinSet.isEmpty())
 		{
 			for (String pinNumber:outputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , OUTPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", OUTPUT);\n");
 			}
 		}
 		
@@ -120,29 +104,9 @@ public class Translator
 			
 		}
 
-		
 		setupFunction.append("}\n\n");
 		
 		return setupFunction.toString();
-	}
-	
-	public String generateGuinoFunction()
-	{
-		StringBuilder guinoFunction = new StringBuilder();
-		
-		
-		if (!guinoCommand.isEmpty())
-		{
-			guinoFunction.append("void GUINO_DEFINIR_INTERFACE()\n{\n");
-			for (String command:guinoCommand)
-			{
-				guinoFunction.append(command + "\n");
-			}
-			guinoFunction.append("}\n\n");
-		}
-		
-		
-		return guinoFunction.toString();
 	}
 	
 	public String translate(Long blockId) throws SocketNullException, SubroutineNotDeclaredException, BlockException
@@ -163,24 +127,13 @@ public class Translator
 		headerFileSet = new LinkedHashSet<String>();
 		definitionSet = new LinkedHashSet<String>();
 		setupCommand = new LinkedList<String>();
-		guinoCommand = new LinkedList<String>();
 		functionNameSet = new HashSet<String>();
 		inputPinSet = new HashSet<String>();
 		outputPinSet = new HashSet<String>();
 		bodyTranslatreFinishCallbackSet = new HashSet<TranslatorBlock>();
-		
-		numberVariableSet = new HashMap<String, String>();
-		booleanVariableSet = new HashMap<String, String>();
-		stringVariableSet = new HashMap<String, String>();
-		
-		internalData =  new HashMap<String, Object>();
+		variableSet = new HashSet<String>();
 		blockAdaptor = buildOpenBlocksAdaptor();
-		
-		variableCnt = 0;
-		
 		rootBlockName = null;
-		isScoopProgram = false;
-		isGuinoProgram = false;
 	}
 	
 	private BlockAdaptor buildOpenBlocksAdaptor()
@@ -209,6 +162,10 @@ public class Translator
 		setupCommand.add(command);
 	}
 	
+	/**
+	 * Adds a define statement for a variable.
+	 * @param command - the variable definition to add
+	 */
 	public void addDefinitionCommand(String command)
 	{
 		definitionSet.add(command);
@@ -224,39 +181,59 @@ public class Translator
 		outputPinSet.add(pinNumber);
 	}
 	
-	public String getNumberVariable(String userVarName)
+	/**
+	 * Does the variable already exist in our C program?
+	 * @param name - name of the variable we wish to use in the C program
+	 * @return true if the name has been used in the C program already
+	 */
+	public boolean doesVariableExist(String name)
 	{
-		return numberVariableSet.get(userVarName);
+		return variableSet.contains(name);
 	}
 	
-	public String getBooleanVariable(String userVarName)
+	/**
+	 * Add a variable to the list of variables used in the C program.
+	 * @param name - name of the variable to remember
+	 */
+	public void addVariable(String name)
 	{
-		return booleanVariableSet.get(userVarName);
+		variableSet.add(name);
 	}
 	
-	public String getStringVariable(String userVarName)
+	/**
+	 * Add a variable, or create a new one if it already exists.
+	 * Checks if a suggested variable name is available.  If we've used
+	 * it already, picks a new name for us.
+	 * @param name - a suggested variable name
+	 * @return the name of the variable (could be the same or new)
+	 */
+	public String addOrCreateNumberVariable(String name)
 	{
-		return stringVariableSet.get(userVarName);
-	}
-	
-	public void addNumberVariable(String userVarName, String internalName)
-	{
-		numberVariableSet.put(userVarName, internalName);
-	}
-	
-	public void addBooleanVariable(String userVarName, String internalName)
-	{
-		booleanVariableSet.put(userVarName, internalName);
-	}
-	
-	public void addStringVariable(String userVarName, String internalName)
-	{
-		stringVariableSet.put(userVarName, internalName);
+		// Start with the suggested variable name.
+		String newName = name;
+		
+		// Create a variable counter, which we'll use if we need to.
+		int i = 0;
+		
+		// If that variable name has been used before...
+        while (variableSet.contains(newName))
+		{
+			// Increment our variable counter.
+			i++;
+			
+			// Try a new variable name.
+			newName = name + i;
+		}
+		
+		// Remember the new variable name.
+		variableSet.add(newName);
+
+		return newName;
 	}
 	
 	public void addFunctionName(Long blockId, String functionName) throws SubroutineNameDuplicatedException
 	{
-		if (functionName.equals("loop") ||functionName.equals("setup") || functionNameSet.contains(functionName))
+		if (functionName.equals("loop") || functionName.equals("setup") || functionNameSet.contains(functionName))
 		{
 			throw new SubroutineNameDuplicatedException(blockId);
 		}
@@ -269,33 +246,13 @@ public class Translator
 		return functionNameSet.contains(name.trim());
 	}
 	
-	
-	public String buildVariableName()
+	public Workspace getWorkspace()
 	{
-		return buildVariableName("");
-	}
-	
-	public String buildVariableName(String reference)
-	{
-		variableCnt = variableCnt + 1;
-		String varName = variablePrefix + variableCnt + "_";
-		int i;
-		for (i=0; i<reference.length(); ++i)
-		{
-			char c = reference.charAt(i);
-			if (Character.isLetter(c) || Character.isDigit(c) || (c == '_'))
-			{
-				varName = varName + c;
-			}
-		}
-		return varName;
-	}
-	
-	public Workspace getWorkspace() {
 		return workspace;
 	}
 	
-	public Block getBlock(Long blockId) {
+	public Block getBlock(Long blockId)
+	{
 		return workspace.getEnv().getBlock(blockId);
 	}
 	
@@ -312,27 +269,14 @@ public class Translator
 		}
 	}
 
-	public String getRootBlockName() {
+	public String getRootBlockName()
+	{
 		return rootBlockName;
 	}
 
-	public void setRootBlockName(String rootBlockName) {
+	public void setRootBlockName(String rootBlockName)
+	{
 		this.rootBlockName = rootBlockName;
-	}
-
-	public boolean isScoopProgram() {
-		return isScoopProgram;
-	}
-
-	public void setScoopProgram(boolean isScoopProgram) {
-		this.isScoopProgram = isScoopProgram;
-	}
-	public boolean isGuinoProgram() {
-		return isGuinoProgram;
-	}
-
-	public void setGuinoProgram(boolean isGuinoProgram) {
-		this.isGuinoProgram = isGuinoProgram;
 	}
 	
 	public Set<RenderableBlock> findEntryBlocks()
@@ -393,7 +337,6 @@ public class Translator
 					this.addFunctionName(block.getBlockID(), functionName);
 					subroutineBlockSet.add(renderableBlock);
 				}
-				
 			}
 		}
 		
@@ -419,15 +362,5 @@ public class Translator
 		code.insert(0, genreateHeaderCommand());
 		
 		return code.toString();
-	}
-	
-	public Object getInternalData(String name)
-	{
-		return internalData.get(name);
-	}
-	
-	public void addInternalData(String name, Object value)
-	{
-		internalData.put(name, value);
 	}
 }

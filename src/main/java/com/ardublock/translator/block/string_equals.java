@@ -14,22 +14,29 @@ public class string_equals extends TranslatorBlock
 	@Override
 	public String toCode()  throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String first;
-		String second;
+		String first;	// first string to compare
+		String second;	// second string to compare
 		
+		// Fetch the first string.
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		first = translatorBlock.toCode();
+		
+		// If the first string is new...
+		if (!translator.doesVariableExist(label))
+		{
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a C define statement for it.
+			translator.addDefinitionCommand("String " + label + " = " + first + ";");
+		}
+		
+		// Fetch the second string.
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		second = translatorBlock.toCode();
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
-		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("String " + internalVariableName + " = " + first + ";");
-//			translator.addSetupCommand(internalVariableName + " = \"\";");
-		}
-		String ret= internalVariableName + ".equals(" + second + ")";
+		
+		// Form the C code.
+		String ret = label + ".equals(" + second + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 }

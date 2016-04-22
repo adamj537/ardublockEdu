@@ -14,22 +14,29 @@ public class string_toInt extends TranslatorBlock
 	@Override
 	public String toCode()  throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String first;
-		String second;
+		String first;	// string to compare
+		String number;	// number to compare string with
 		
+		// Fetch the string.
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		first = translatorBlock.toCode();
-		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		second = translatorBlock.toCode();
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
+		
+		// If the string's variable is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("String " + internalVariableName + " = " + first + ";");
-//			translator.addSetupCommand(internalVariableName + " = \"\";");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a C define statement for it.
+			translator.addDefinitionCommand("String " + label + " = " + first + ";");
 		}
-		String ret= internalVariableName + ".toInt() == " + second;
+		
+		// Fetch the number.
+		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
+		number = translatorBlock.toCode();
+		
+		// Form the C code.
+		String ret = label + ".toInt() == " + number;
 		return codePrefix + ret + codeSuffix;
 	}
 }

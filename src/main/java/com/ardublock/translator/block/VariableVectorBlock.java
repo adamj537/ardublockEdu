@@ -15,7 +15,7 @@ public class VariableVectorBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
         TranslatorBlock position = this.getRequiredTranslatorBlockAtSocket(0);
-		String ret = "vec_" + label.replace(" ","") + "[" + position.toCode() + " - 1]";
+		String ret = label.replace(" ","") + "[" + position.toCode() + " - 1]";
 		return codePrefix + ret + codeSuffix;
 	}
 }

@@ -19,7 +19,7 @@ public class RepeatBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String varName="";
+		String varName = "";
 		TranslatorBlock test = this.getRequiredTranslatorBlockAtSocket(0);
 		if(!(test instanceof VariableNumberBlock ||
 			 test instanceof VariableNumberUnsignedLongBlock ||

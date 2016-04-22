@@ -12,14 +12,17 @@ public class VariablePolyBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
+		// If the variable is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("char " + internalVariableName + " = \' \' ;");
-//			translator.addSetupCommand(internalVariableName + " = 0;");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a define statement for it.
+			translator.addDefinitionCommand("char " + label + " = \' \' ;");
 		}
-		return codePrefix + internalVariableName + codeSuffix;
+		
+		// Generate code.
+		return codePrefix + label + codeSuffix;
 	}
 }

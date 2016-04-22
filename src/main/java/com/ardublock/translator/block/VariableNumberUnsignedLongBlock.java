@@ -12,14 +12,17 @@ public class VariableNumberUnsignedLongBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
+		// If the variable is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("unsigned long " + internalVariableName + " = 0UL ;");
-//			translator.addSetupCommand(internalVariableName + " = 0;");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a define statement for it.
+			translator.addDefinitionCommand("unsigned long " + label + " = 0UL;");
 		}
-		return codePrefix + internalVariableName + codeSuffix;
+		
+		// Generate code.
+		return codePrefix + label + codeSuffix;
 	}
 }

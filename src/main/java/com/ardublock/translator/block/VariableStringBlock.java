@@ -14,14 +14,18 @@ public class VariableStringBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
+		// If the string's variable is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("char " + internalVariableName + "[64] = \"\";");
-//			translator.addSetupCommand(internalVariableName + " = 0;");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a C define statement for it.
+			// TODO:  Add a way to set the size of the string.
+			translator.addDefinitionCommand("char " + label + "[64] = \"\";");
 		}
-		return codePrefix + internalVariableName + codeSuffix;
+		
+		// Form the C code.
+		return codePrefix + label + codeSuffix;
 	}
 }

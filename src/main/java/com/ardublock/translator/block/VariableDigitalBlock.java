@@ -12,16 +12,18 @@ public class VariableDigitalBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-		String internalVariableName = translator.getBooleanVariable(label);
-		if (internalVariableName == null)
+		// If the string's variable is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addBooleanVariable(label, internalVariableName);
-			translator.addDefinitionCommand("bool " + internalVariableName + "= false ;");
-//			translator.addSetupCommand(internalVariableName + " = false;");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a C define statement for it.
+			translator.addDefinitionCommand("bool " + label + ";");
 		}
-		//String ret = " ( " + internalVariableName + " ? true : false )";
-		String ret = internalVariableName;
+		
+		// Form the C code.
+		String ret = label;
 		return codePrefix + ret + codeSuffix;
 	}
 }

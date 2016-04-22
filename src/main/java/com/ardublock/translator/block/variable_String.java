@@ -12,14 +12,17 @@ public class variable_String extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-		String internalVariableName = translator.getNumberVariable(label);
-		if (internalVariableName == null)
+		// If the string is new...
+		if (!translator.doesVariableExist(label))
 		{
-			internalVariableName = translator.buildVariableName(label);
-			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("String " + internalVariableName + " = \"\" ;");
-//			translator.addSetupCommand(internalVariableName + " = \"\";");
+			// Remember it.
+			translator.addVariable(label);
+			
+			// Create a C define statement for it.
+			translator.addDefinitionCommand("String " + label + " = \"\";");
 		}
-		return codePrefix + internalVariableName + codeSuffix;
+		
+		// Generate C code.
+		return codePrefix + label + codeSuffix;
 	}
 }
