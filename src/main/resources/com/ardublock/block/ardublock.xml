@@ -2214,29 +2214,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="led_mode_flash" kind="data" color="204 153 255" initlabel="bg.led_mode_flash">
-			<description>
-				<text>
-					Flashing Mode
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="led_mode_fade" kind="data" color="204 153 255" initlabel="bg.led_mode_fade">
-			<description>
-				<text>
-					Fading Mode
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-
 		<BlockGenus name="port_pin_name" kind="data" color="246 220 169" initlabel="bg.port_pin_name" editable-label="yes">
 			<description>
 				<text>
@@ -2245,107 +2222,6 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="poly" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="trigger_equal" kind="data" color="222 131 51" initlabel="bg.trigger_equal" editable-label="no">
-			<description>
-				<text>
-					trigger equal
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="trigger_greater" kind="data" color="222 131 51" initlabel="bg.trigger_greater" editable-label="no">
-			<description>
-				<text>
-					trigger greater
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="trigger_less" kind="data" color="222 131 51" initlabel="bg.trigger_less" editable-label="no">
-			<description>
-				<text>
-					trigger less
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-
-
-		<BlockGenus name="player_mode_random" kind="data" color="204 153 255" initlabel="bg.player_mode_random">
-			<description>
-				<text>
-					Random Mode
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="player_mode_single" kind="data" color="204 153 255" initlabel="bg.player_mode_single">
-			<description>
-				<text>
-					 Single Mode
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="output_mode_high" kind="data" color="204 153 255" initlabel="bg.output_mode_high">
-			<description>
-				<text>
-					 high
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="output_mode_low" kind="data" color="204 153 255" initlabel="bg.output_mode_low">
-			<description>
-				<text>
-					 low
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="output_mode_highpulse" kind="data" color="204 153 255" initlabel="bg.output_mode_highpulse">
-			<description>
-				<text>
-					 high pulse
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="output_mode_lowpulse" kind="data" color="204 153 255" initlabel="bg.output_mode_lowpulse">
-			<description>
-				<text>
-					 low pulse
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" position-type="single" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -2439,28 +2315,6 @@
 				<FamilyMember>servo_sg90</FamilyMember>
 				<FamilyMember>servo_mg996r</FamilyMember>
 			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>led_mode_flash</FamilyMember>
-				<FamilyMember>led_mode_fade</FamilyMember>
-			</BlockFamily>
-
-			<BlockFamily>
-				<FamilyMember>trigger_equal</FamilyMember>
-				<FamilyMember>trigger_greater</FamilyMember>
-				<FamilyMember>trigger_less</FamilyMember>
-			</BlockFamily>
-
-			<BlockFamily>
-				<FamilyMember>player_mode_random</FamilyMember>
-				<FamilyMember>player_mode_single</FamilyMember>
-			</BlockFamily>
-
-			<BlockFamily>
-				<FamilyMember>output_mode_high</FamilyMember>
-				<FamilyMember>output_mode_low</FamilyMember>
-				<FamilyMember>output_mode_highpulse</FamilyMember>
-				<FamilyMember>output_mode_lowpulse</FamilyMember>
-			</BlockFamily>		
 			<BlockFamily>
 			<FamilyMember>DDRA</FamilyMember>
 				<FamilyMember>DDRB</FamilyMember>

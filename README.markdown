@@ -17,10 +17,6 @@ Authors
 ----
 * Adam Johnson adamj537@gmail.com
 
-ToDo
-----
-* Almost everything
-
 License
 ----
 This file is part of ArduBlock.
