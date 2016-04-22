@@ -40,7 +40,7 @@ public class PlayerPara extends TranslatorBlock
 
 		varName = translator.buildVariableName(varName);
 	
-		actuatorParaDef = "byte " + varName + "[]={";
+		actuatorParaDef = "byte " + varName + "[] = {";
 
 		childBlock = getTranslatorBlockAtSocket(1);
 		if (childBlock != null)

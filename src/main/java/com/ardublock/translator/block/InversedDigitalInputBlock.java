@@ -6,8 +6,8 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class InversedDigitalInputBlock extends DigitalInputBlock
 {
-
-	public InversedDigitalInputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public InversedDigitalInputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 	

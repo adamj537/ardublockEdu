@@ -22,5 +22,4 @@ public class GluePolyBlock extends TranslatorBlock
 		}
 		return ret;
 	}
-
 }

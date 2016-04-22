@@ -34,5 +34,4 @@ public class IfelseBlock extends TranslatorBlock
 		ret = ret + "}\n";
 		return ret;
 	}
-
 }

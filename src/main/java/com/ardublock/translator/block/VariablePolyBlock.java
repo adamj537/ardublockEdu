@@ -22,5 +22,4 @@ public class VariablePolyBlock extends TranslatorBlock
 		}
 		return codePrefix + internalVariableName + codeSuffix;
 	}
-
 }

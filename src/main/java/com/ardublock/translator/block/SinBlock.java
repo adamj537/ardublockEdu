@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class SinBlock extends TranslatorBlock
 {
-
 	public SinBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -15,11 +14,10 @@ public class SinBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "sin( ";
+		String ret = "sin(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " )";
+		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
-	
 }

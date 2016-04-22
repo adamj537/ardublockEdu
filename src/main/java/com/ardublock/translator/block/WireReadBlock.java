@@ -24,13 +24,13 @@ public class WireReadBlock extends TranslatorBlock
 		{
 			ret += "//Unable to dectect your Arduino version, using 1.0 in default\n";
 		}
-		ret += "__ardublockI2cReadData( ";
+		ret += "__ardublockI2cReadData(";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + tb.toCode();
-		ret = ret + " , ";
+		ret = ret + ", ";
 		tb = getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + tb.toCode();
-		ret = ret + " )";
+		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 	
@@ -61,5 +61,4 @@ public class WireReadBlock extends TranslatorBlock
 		
 		t.addSetupCommand("\tWire.begin();\n\t__ardublockIsI2cReadOk = false;");
 	}
-
 }

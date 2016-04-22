@@ -54,10 +54,7 @@ public class AddRule extends TranslatorBlock
 				{
 					ret ="";
 				}
-				
 			}
-
-
 		}
 
 		return ret;

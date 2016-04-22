@@ -26,11 +26,10 @@ public class string_toInt extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("String " + internalVariableName + " = "+first +" ;");
+			translator.addDefinitionCommand("String " + internalVariableName + " = " + first + ";");
 //			translator.addSetupCommand(internalVariableName + " = \"\";");
 		}
-		String ret= internalVariableName + ".toInt() =="+second;
+		String ret= internalVariableName + ".toInt() == " + second;
 		return codePrefix + ret + codeSuffix;
 	}
-
 }

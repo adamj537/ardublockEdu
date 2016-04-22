@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class DelayBlock extends TranslatorBlock
 {
-
 	public DelayBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator);
@@ -15,11 +14,10 @@ public class DelayBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "\tdelay( ";
+		String ret = "\tdelay(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " );\n";
+		ret = ret + ");\n";
 		return ret;
 	}
-
 }

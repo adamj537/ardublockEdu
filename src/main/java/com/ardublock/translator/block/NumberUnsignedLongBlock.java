@@ -14,5 +14,4 @@ public class NumberUnsignedLongBlock extends TranslatorBlock
 	{
 		return codePrefix + label + "UL" + codeSuffix;
 	}
-
 }

@@ -1,6 +1,5 @@
 package com.ardublock.translator.block;
 
-
 import java.util.ResourceBundle;
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.BlockException;
@@ -20,14 +19,14 @@ public class SetterVariableVectorBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock name = this.getRequiredTranslatorBlockAtSocket(0);
-		if (!(name instanceof VariableFakeBlock)) {
-		      throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.array_var_slot"));
-		    }
+		if (!(name instanceof VariableFakeBlock))
+		{
+			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.array_var_slot"));
+		}
 		TranslatorBlock position = this.getRequiredTranslatorBlockAtSocket(1);
 		TranslatorBlock value = this.getRequiredTranslatorBlockAtSocket(2);
 		String ret = name.toCode()+"["+position.toCode()+" - 1]";
 		ret = ret + " = " + value.toCode() + " ;\n";
 		return ret;
 	}
-
 }

@@ -14,7 +14,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class LedPara extends TranslatorBlock
 {
-	
 	public LedPara(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator);
@@ -25,7 +24,6 @@ public class LedPara extends TranslatorBlock
 	{
 		String ret, pin, varName, actuatorParaDef;
 		TranslatorBlock childBlock;	
-
 
 		childBlock = getRequiredTranslatorBlockAtSocket(0);
 		if (childBlock != null)
@@ -41,7 +39,7 @@ public class LedPara extends TranslatorBlock
 		
 		varName = translator.buildVariableName(varName);
 	
-		actuatorParaDef = "byte " + varName + "[]={";
+		actuatorParaDef = "byte " + varName + "[] = {";
 
 		childBlock = getTranslatorBlockAtSocket(1);
 		if (childBlock != null)
@@ -63,7 +61,6 @@ public class LedPara extends TranslatorBlock
 		/**/
 
 		ret = pin + ",FUNCTION_LED," + "sizeof(" + varName +")," + varName;
-		
 		
 		return ret;
 	}

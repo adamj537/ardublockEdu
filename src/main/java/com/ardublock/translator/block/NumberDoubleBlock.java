@@ -12,10 +12,12 @@ public class NumberDoubleBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-		if ( ! label.contains(".")) {
-			label = label + ".0";		// double constants are indicated by decimal points
+		if (!label.contains("."))
+		{
+			// double constants are indicated by decimal points
+			label = label + ".0";
 		}
+		
 		return codePrefix + label + codeSuffix;
 	}
-
 }

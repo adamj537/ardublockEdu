@@ -35,8 +35,6 @@ public class PinName extends TranslatorBlock
 			pinMap.put("UART", "PALETTE_PIN_UART");
 			pinMap.put("I2C", "PALETTE_PIN_I2C");
 		}
-
-
 	}
 
 	@Override
@@ -44,15 +42,13 @@ public class PinName extends TranslatorBlock
 	{
 		String ret;
 
-
 		ret = pinMap.get(label.trim().toUpperCase());
 			
-		if ( null == ret )
+		if (null == ret)
 		{
 			ret = "?";
 		}
 			
 		return ret;
 	}
-	
 }

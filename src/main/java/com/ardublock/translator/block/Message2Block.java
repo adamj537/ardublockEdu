@@ -14,7 +14,7 @@ public class Message2Block extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		//TODO take out special character
+		// TODO take out special character
 		String ret;
 		ret = label.replaceAll("\\\\", "\\\\\\\\");
 		ret = ret.replaceAll("\"", "\\\\\"");
@@ -26,5 +26,4 @@ public class Message2Block extends TranslatorBlock
 		}
 		return ret;
 	}
-
 }

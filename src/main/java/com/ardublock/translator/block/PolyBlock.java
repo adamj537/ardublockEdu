@@ -14,5 +14,4 @@ public class PolyBlock extends TranslatorBlock
 	{
 	    return codePrefix + "\""+label+ "\"" + codeSuffix;
 	}
-
 }

@@ -4,7 +4,8 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class Keyboard_PostBlock  extends TranslatorBlock {
+public class Keyboard_PostBlock  extends TranslatorBlock
+{
 	public Keyboard_PostBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -31,6 +32,4 @@ public class Keyboard_PostBlock  extends TranslatorBlock {
 				+ "PS2Keyboard keyboard_pin"+DataPin+IRQpin+";\n"	);
 		return codePrefix + "keyboard_pin"+DataPin+IRQpin+".afficher()"+ codeSuffix;
 	}
-	
-
 }

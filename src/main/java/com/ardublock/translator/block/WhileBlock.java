@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class WhileBlock extends TranslatorBlock
 {
-
 	public WhileBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator);
@@ -15,10 +14,10 @@ public class WhileBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "\twhile ( ";
+		String ret = "\twhile (";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " )\n\t{\n";
+		ret = ret + ")\n\t{\n";
 		translatorBlock = getTranslatorBlockAtSocket(1);
 		while (translatorBlock != null)
 		{
@@ -28,5 +27,4 @@ public class WhileBlock extends TranslatorBlock
 		ret = ret + "\t}\n\n";
 		return ret;
 	}
-
 }

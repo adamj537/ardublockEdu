@@ -24,7 +24,7 @@ public class TimePara extends TranslatorBlock
 		String ret;
 		TranslatorBlock childBlock;	
 
-		ret = "{PALETTE_PIN_VIRTUAL_TIME, FUNCTION_SENSOR_VIRTUALTIME },";
+		ret = "{PALETTE_PIN_VIRTUAL_TIME, FUNCTION_SENSOR_VIRTUALTIME},";
 
 
 		childBlock = getTranslatorBlockAtSocket(0);

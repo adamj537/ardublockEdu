@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class BreakBlock extends TranslatorBlock
 {
-
 	public BreakBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator);
@@ -17,5 +16,4 @@ public class BreakBlock extends TranslatorBlock
 	{
 		return "break;\n";
 	}
-
 }

@@ -13,8 +13,7 @@ public class VariableFakeBlock extends TranslatorBlock
 	public String toCode()
 	{
 		String internalVariableName = translator.getNumberVariable(label);
-		internalVariableName = "vec_"+label.replace(" ","");
-		return codePrefix+internalVariableName+codeSuffix;
+		internalVariableName = "vec_" + label.replace(" ","");
+		return codePrefix + internalVariableName + codeSuffix;
 	}
-
 }

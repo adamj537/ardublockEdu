@@ -10,7 +10,6 @@ public class WatchdogPortBlock extends TranslatorBlock
 	public WatchdogPortBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
-		
 	}
 
 	@Override

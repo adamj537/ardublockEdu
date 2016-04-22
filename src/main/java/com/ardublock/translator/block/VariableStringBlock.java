@@ -24,5 +24,4 @@ public class VariableStringBlock extends TranslatorBlock
 		}
 		return codePrefix + internalVariableName + codeSuffix;
 	}
-
 }

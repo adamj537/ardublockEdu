@@ -9,5 +9,4 @@ public class DigitalOffBlock extends ConstBlock
 		super(blockId, translator, codePrefix, codeSuffix, label);
 		this.setCode("LOW");
 	}
-
 }

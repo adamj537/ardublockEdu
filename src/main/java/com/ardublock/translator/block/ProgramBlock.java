@@ -7,7 +7,6 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-
 public class ProgramBlock extends TranslatorBlock
 {
 	private List<String> setupCommand;
@@ -18,37 +17,27 @@ public class ProgramBlock extends TranslatorBlock
 		setupCommand = new LinkedList<String>();
 	}
 	
-	
-
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 	    String ret="";
-	    
+		
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(0);
 		while (translatorBlock != null)
 		{
-			
 			ret = translatorBlock.toCode();
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 			this.setupCommand.add(ret);
 		}
 		
 		translator.registerBodyTranslateFinishCallback(this);
-//		return "";
 		ret="";
 		ret = "void loop()\n{\n";
 		TranslatorBlock translatorBlock2 = getTranslatorBlockAtSocket(1);
 		while (translatorBlock2 != null)
 		{
-			
 			ret = ret + translatorBlock2.toCode();
 			translatorBlock2 = translatorBlock2.nextTranslatorBlock();
-		}
-		
-		if (translator.isScoopProgram())
-		{
-			ret += "yield();\n";
 		}
 		
 		ret = ret + "}\n\n";
@@ -63,5 +52,4 @@ public class ProgramBlock extends TranslatorBlock
 			translator.addSetupCommandForced(command);
 		}
 	}
-	
 }

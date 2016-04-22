@@ -25,7 +25,6 @@ public class DigitalInputBlock extends TranslatorBlock
 		{
 			return generateCodeUsingNonNumberBlock(translatorBlock);
 		}
-		
 	}
 	
 	protected String generateCodeUsingNumberBlock(TranslatorBlock translatorBlock) throws SocketNullException, SubroutineNotDeclaredException
@@ -49,5 +48,4 @@ public class DigitalInputBlock extends TranslatorBlock
 		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
-
 }

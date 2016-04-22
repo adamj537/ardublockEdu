@@ -6,9 +6,8 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class SubroutineRefBlock_var extends TranslatorBlock
 {
-
-	public SubroutineRefBlock_var(Long blockId, Translator translator,
-			String codePrefix, String codeSuffix, String label) {
+	public SubroutineRefBlock_var(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -23,7 +22,6 @@ public class SubroutineRefBlock_var extends TranslatorBlock
 		{
 			throw new SubroutineNotDeclaredException(blockId);
 		}
-		return "\t"+subroutineName + "("+var+");\n";
+		return "\t"+subroutineName + "(" + var + ");\n";
 	}
-
 }

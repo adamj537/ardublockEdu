@@ -15,5 +15,4 @@ public class WireIsReadBlock extends TranslatorBlock
 		WireReadBlock.setupWireEnvironment(translator);
 		return codePrefix + " __ardublockIsI2cReadOk " + codeSuffix;
 	}
-
 }

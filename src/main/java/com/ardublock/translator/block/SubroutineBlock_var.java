@@ -6,9 +6,8 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class SubroutineBlock_var extends TranslatorBlock
 {
-
-	public SubroutineBlock_var(Long blockId, Translator translator,
-			String codePrefix, String codeSuffix, String label) {
+	public SubroutineBlock_var(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -23,7 +22,7 @@ public class SubroutineBlock_var extends TranslatorBlock
 		var = translatorBlock.toCode();
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		
-		ret = "void " + subroutineName + "(int "+var+")\n{\n";
+		ret = "void " + subroutineName + "(int " + var + ")\n{\n";
 		while (translatorBlock != null)
 		{
 			ret = ret + translatorBlock.toCode();

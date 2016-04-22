@@ -16,13 +16,7 @@ public class WatchdogResetBlock extends TranslatorBlock
 	{
 		WatchdogBlock.setupWatchdog(translator);
 
-		//TranslatorBlock t5 = getRequiredTranslatorBlockAtSocket(0);
-		//String bol1 = t5.toString();
-
-			String ret = "wdt_reset();\n";
-			return ret;
-		
+		String ret = "wdt_reset();\n";
+		return ret;
 	}
-
-
 }

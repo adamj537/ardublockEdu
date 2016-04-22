@@ -9,7 +9,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class RepeatControlBlock extends TranslatorBlock
 {
-
 	private static ResourceBundle uiMessageBundle = ResourceBundle.getBundle("com/ardublock/block/ardublock");
 	
 	public RepeatControlBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
@@ -40,8 +39,8 @@ public class RepeatControlBlock extends TranslatorBlock
 		String ret = "";
 
 		ret = ret + "for(" + varName + " = " + startVal + "; \n" + 
-				    startVal + "<=" + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
-				    startVal + "<=" + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ")\n{"; 
+			startVal + " <= " + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
+			startVal + " <= " + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ")\n{"; 
 
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(4);
 		while (translatorBlock != null)
@@ -53,5 +52,4 @@ public class RepeatControlBlock extends TranslatorBlock
 		ret = ret + "}\n";
 		return ret;
 	}
-
 }

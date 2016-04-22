@@ -14,5 +14,4 @@ public class NumberSingleBlock extends TranslatorBlock
 	{
 		return codePrefix + label + codeSuffix;
 	}
-
 }

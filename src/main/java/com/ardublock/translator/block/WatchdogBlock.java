@@ -21,10 +21,10 @@ public class WatchdogBlock extends TranslatorBlock
 		
 		if (bol1.startsWith("com.ardublock.translator.block.DigitalHigh"))
 		{
-			String ret = "wdt_enable( ";
+			String ret = "wdt_enable(";
 			TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(1);
 			ret = ret + tb.toCode();
-			ret = ret + " );\n";
+			ret = ret + ");\n";
 
 			return ret;
 		}

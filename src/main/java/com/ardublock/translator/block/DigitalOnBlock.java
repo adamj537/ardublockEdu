@@ -9,5 +9,4 @@ public class DigitalOnBlock extends ConstBlock
 		super(blockId, translator, codePrefix, codeSuffix, label);
 		this.setCode("HIGH");
 	}
-
 }

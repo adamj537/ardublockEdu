@@ -19,20 +19,17 @@ public class Toggle extends TranslatorBlock
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String portNum = translatorBlock.toCode();
 		
-		
 		if (translatorBlock instanceof NumberBlock)
 		{
 			translator.addOutputPin(portNum.trim());
 		}
 		else
 		{
-			String setupCode = "pinMode( " + portNum + " , OUTPUT);";
+			String setupCode = "pinMode(" + portNum + ", OUTPUT);";
 			translator.addSetupCommand(setupCode);
 		}
 		
-		
-		String ret = "digitalWrite(" + portNum + " ,!digitalRead(" + portNum + "));\n";
+		String ret = "digitalWrite(" + portNum + ", !digitalRead(" + portNum + "));\n";
 		return ret;
 	}
-
 }

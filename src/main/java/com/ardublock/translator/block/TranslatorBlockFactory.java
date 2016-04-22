@@ -37,7 +37,9 @@ public class TranslatorBlockFactory
 //		System.out.println("block name : " + blockName + " captured");
 		
 		String className = PropertiesReader.getValue(blockName, BLOCK_MAPPING);
-		//System.out.println("className: " + className);
+		
+//		System.out.println("className: " + className);
+
 		String longName = shortClassName.get(className);
 		if (longName != null)
 		{
@@ -51,19 +53,32 @@ public class TranslatorBlockFactory
 			TranslatorBlock ret = (TranslatorBlock)constructor.newInstance(blockId, translator, codePrefix, codeSuffix, label);
 			return ret;
 		}
-		catch (IllegalArgumentException e) {
+		catch (IllegalArgumentException e)
+		{
 			e.printStackTrace();
-		} catch (InstantiationException e) {
+		}
+		catch (InstantiationException e)
+		{
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		}
+		catch (IllegalAccessException e)
+		{
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		}
+		catch (InvocationTargetException e)
+		{
 			e.printStackTrace();
-		} catch (SecurityException e) {
+		}
+		catch (SecurityException e)
+		{
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		}
+		catch (NoSuchMethodException e)
+		{
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+		}
+		catch (ClassNotFoundException e)
+		{
 			System.err.println(blockName + " not suitable class!");
 		}		
 

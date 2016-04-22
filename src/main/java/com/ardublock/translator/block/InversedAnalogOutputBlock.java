@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class InversedAnalogOutputBlock extends AnalogOutputBlock
 {
-
 	public InversedAnalogOutputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -20,10 +19,10 @@ public class InversedAnalogOutputBlock extends AnalogOutputBlock
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		String value = translatorBlock.toCode();
 		
-		String setupCode = "pinMode( " + portNum + " , OUTPUT);";
+		String setupCode = "pinMode(" + portNum + ", OUTPUT);";
 		translator.addSetupCommand(setupCode);
 		
-		String ret = "analogWrite(" + portNum + ", 255 - (" + value + " ));\n";
+		String ret = "analogWrite(" + portNum + ", 255 - (" + value + "));\n";
 		
 		return ret;
 	}

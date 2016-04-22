@@ -15,12 +15,11 @@ public class VariableNumberDoubleBlock extends TranslatorBlock
     String internalVariableName = translator.getNumberVariable(label);
     if (internalVariableName == null)
     {
-      internalVariableName = translator.buildVariableName(label);
-      translator.addNumberVariable(label, internalVariableName);
-      translator.addDefinitionCommand("double " + internalVariableName + " = 0.0 ;");
-//      translator.addSetupCommand(internalVariableName + " = 0;");
+		internalVariableName = translator.buildVariableName(label);
+		translator.addNumberVariable(label, internalVariableName);
+		translator.addDefinitionCommand("double " + internalVariableName + " = 0.0 ;");
+//		translator.addSetupCommand(internalVariableName + " = 0;");
     }
     return codePrefix + internalVariableName + codeSuffix;
   }
-
 }

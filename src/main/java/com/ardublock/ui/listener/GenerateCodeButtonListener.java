@@ -47,9 +47,7 @@ public class GenerateCodeButtonListener implements ActionListener
 		
 		Set<RenderableBlock> loopBlockSet = new HashSet<RenderableBlock>();
 		Set<RenderableBlock> subroutineBlockSet = new HashSet<RenderableBlock>();
-		Set<RenderableBlock> guinoBlockSet = new HashSet<RenderableBlock>();
 		StringBuilder code = new StringBuilder();
-		
 		
 		for (RenderableBlock renderableBlock:renderableBlocks)
 		{
@@ -94,7 +92,7 @@ public class GenerateCodeButtonListener implements ActionListener
 						context.highlightBlock(renderableBlock);
 						//find the second subroutine whose name is defined, and make it highlight. though it cannot happen due to constraint of OpenBlocks -_-
 						JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.subroutineNameDuplicated"), "Error", JOptionPane.ERROR_MESSAGE);
-						return ;
+						return;
 					}
 					subroutineBlockSet.add(renderableBlock);
 				}
@@ -110,42 +108,35 @@ public class GenerateCodeButtonListener implements ActionListener
 						context.highlightBlock(renderableBlock);
 						//find the second subroutine whose name is defined, and make it highlight. though it cannot happen due to constraint of OpenBlocks -_-
 						JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.subroutineNameDuplicated"), "Error", JOptionPane.ERROR_MESSAGE);
-						return ;
+						return;
 					}
 					subroutineBlockSet.add(renderableBlock);
 				}
 			}
 		}
-		if (loopBlockSet.size() == 0) {
+		if (loopBlockSet.size() == 0)
+		{
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.noLoopFound"), "Error", JOptionPane.ERROR_MESSAGE);
 			return ;
 		}
-		if (loopBlockSet.size() > 1) {
+		if (loopBlockSet.size() > 1)
+		{
 			for (RenderableBlock rb : loopBlockSet)
 			{
 				context.highlightBlock(rb);
 			}
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.multipleLoopFound"), "Error", JOptionPane.ERROR_MESSAGE);
-			return ;
+			return;
 		}
 
 		try
 		{
-			
 			for (RenderableBlock renderableBlock : loopBlockSet)
 			{
 				translator.setRootBlockName("loop");
 				Block loopBlock = renderableBlock.getBlock();
 				code.append(translator.translate(loopBlock.getBlockID()));
 			}
-
-			for (RenderableBlock renderableBlock : guinoBlockSet)
-			{
-				translator.setRootBlockName("guino");
-				Block guinoBlock = renderableBlock.getBlock();
-				code.append(translator.translate(guinoBlock.getBlockID()));
-			}
-			
 			
 			for (RenderableBlock renderableBlock : subroutineBlockSet)
 			{

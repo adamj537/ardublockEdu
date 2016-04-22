@@ -36,7 +36,7 @@ public class AnalogInputPara extends TranslatorBlock
 			ret += "?";
 		}
 
-		ret += ",FUNCTION_SENSOR_ANALOG},";
+		ret += ", FUNCTION_SENSOR_ANALOG},";
 
 		childBlock = getTranslatorBlockAtSocket(2);
 		if (childBlock != null)

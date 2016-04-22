@@ -6,7 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class ToneBlock extends TranslatorBlock
 {
-
 	public ToneBlock(Long blockId, Translator translator, String codePrefix,	String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -21,5 +20,4 @@ public class ToneBlock extends TranslatorBlock
 		String ret = "tone(" + pinBlock.toCode() + ", " + freqBlock.toCode() + ");\n";
 		return ret;
 	}
-
 }

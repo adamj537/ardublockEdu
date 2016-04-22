@@ -24,5 +24,4 @@ public class VariableDigitalBlock extends TranslatorBlock
 		String ret = internalVariableName;
 		return codePrefix + ret + codeSuffix;
 	}
-
 }

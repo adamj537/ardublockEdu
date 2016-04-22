@@ -20,5 +20,4 @@ public class AnalogInputBlock extends TranslatorBlock
 		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
-
 }

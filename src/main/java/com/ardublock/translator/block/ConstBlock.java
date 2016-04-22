@@ -21,5 +21,4 @@ public abstract class ConstBlock extends TranslatorBlock
 	{
 		return codePrefix + code + codeSuffix;
 	}
-
 }

@@ -20,13 +20,14 @@ public class setter_variable_String extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-		if (!(tb instanceof variable_String)) {
+		if (!(tb instanceof variable_String))
+		{
 			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.string_var_slot"));
 		}
 		
 		String ret = tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
-		ret = ret + " = " + tb.toCode() + " ;\n";
+		ret = ret + " = " + tb.toCode() + ";\n";
 		return ret;
 	}
 

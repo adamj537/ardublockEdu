@@ -14,7 +14,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class DigitalOutputPara extends TranslatorBlock
 {
-		
 	public DigitalOutputPara(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator);
@@ -25,7 +24,6 @@ public class DigitalOutputPara extends TranslatorBlock
 	{
 		String ret, pin, varName, actuatorParaDef;
 		TranslatorBlock childBlock;	
-
 
 		childBlock = getRequiredTranslatorBlockAtSocket(0);
 		if (childBlock != null)
@@ -41,7 +39,7 @@ public class DigitalOutputPara extends TranslatorBlock
 
 		varName = translator.buildVariableName(varName);
 	
-		actuatorParaDef = "byte " + varName + "[]={";
+		actuatorParaDef = "byte " + varName + "[] = {";
 
 		childBlock = getTranslatorBlockAtSocket(1);
 		if (childBlock != null)
@@ -51,13 +49,11 @@ public class DigitalOutputPara extends TranslatorBlock
 
 		actuatorParaDef += "};";
 
-		
 		translator.addDefinitionCommand(actuatorParaDef);
 
 		/**/
 
 		ret = pin + ",FUNCTION_ACTUATOR_DIGITAL," + "sizeof(" + varName +")," + varName;
-		
 		
 		return ret;
 	}

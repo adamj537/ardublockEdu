@@ -22,5 +22,4 @@ public class GlueSBBlock extends TranslatorBlock
 		}
 		return ret;
 	}
-
 }

@@ -209,13 +209,6 @@ public class Translator
 		setupCommand.add(command);
 	}
 	
-	public void addGuinoCommand(String command)
-	{
-		
-			guinoCommand.add(command);
-		
-	}
-	
 	public void addDefinitionCommand(String command)
 	{
 		definitionSet.add(command);

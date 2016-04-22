@@ -14,8 +14,6 @@ public class PIN_port extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		
 		return codePrefix + label + codeSuffix;
 	}
-
 }

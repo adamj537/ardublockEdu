@@ -6,9 +6,8 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class SubroutineBlock extends TranslatorBlock
 {
-
-	public SubroutineBlock(Long blockId, Translator translator,
-			String codePrefix, String codeSuffix, String label) {
+	public SubroutineBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 

@@ -15,5 +15,4 @@ public class MillisBlock extends TranslatorBlock
 		String ret = "millis()";
 		return codePrefix + ret + codeSuffix;
 	}
-	
 }

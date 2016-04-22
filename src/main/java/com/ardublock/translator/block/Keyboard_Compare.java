@@ -4,7 +4,8 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class Keyboard_Compare  extends TranslatorBlock {
+public class Keyboard_Compare  extends TranslatorBlock
+{
 	public Keyboard_Compare(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -24,8 +25,7 @@ public class Keyboard_Compare  extends TranslatorBlock {
 		Compare = translatorBlock.toCode();
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(3);
 		Touche = translatorBlock.toCode();
-		
-		
+
 		translator.addHeaderFile("PS2Keyboard.h");
 		translator.addSetupCommand("delay(1000);"
 				+ "keyboard_pin"+DataPin+IRQpin+".brancher(DataPin, IRQpin);"
@@ -38,6 +38,4 @@ public class Keyboard_Compare  extends TranslatorBlock {
 				+ "PS2Keyboard keyboard_pin"+DataPin+IRQpin+";\n"	);
 		return codePrefix + "(String)"+Touche+Compare+"(String)keyboard_pin"+DataPin+IRQpin+".afficher()"+ codeSuffix;
 	}
-	
-
 }

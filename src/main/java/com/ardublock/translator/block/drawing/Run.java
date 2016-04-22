@@ -13,7 +13,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class Run extends TranslatorBlock
 {
-
 	public Run(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);

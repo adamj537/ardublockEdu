@@ -14,17 +14,9 @@ public class GlueMSGBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		//TODO take out special character
+		// TODO take out special character
 		String ret;
 		ret = label.replaceAll("\\\\", "\\\\\\\\");
-		//ret = ret.replaceAll("\"", "\\\\\"");
-//		ret = ret.replaceAll(";", "\\\\;");
-//		ret = codePrefix + "\"" + ret + "\"" + codeSuffix;
-//		TranslatorBlock translatorBlock = this.getTranslatorBlockAtSocket(0, codePrefix, codeSuffix);
-//		if (translatorBlock != null)
-//		{
-//			ret = ret + translatorBlock.toCode();
-//		}
 		return ret;
 	}
 

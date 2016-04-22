@@ -12,7 +12,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class ConstantMap extends TranslatorBlock
 {
-	
 	private static Map<String, String> map = new HashMap<String, String>();
 
 	public ConstantMap(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
@@ -43,7 +42,6 @@ public class ConstantMap extends TranslatorBlock
 	{
 		String ret;
 
-
 		ret = map.get(label.trim().toLowerCase());
 			
 		if ( null == ret )
@@ -53,5 +51,4 @@ public class ConstantMap extends TranslatorBlock
 			
 		return ret;
 	}
-	
 }

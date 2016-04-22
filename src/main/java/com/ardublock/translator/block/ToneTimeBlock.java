@@ -6,7 +6,7 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class ToneTimeBlock extends TranslatorBlock
 {
-	public ToneTimeBlock(Long blockId, Translator translator, String codePrefix,	String codeSuffix, String label)
+	public ToneTimeBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}

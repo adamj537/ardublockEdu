@@ -14,14 +14,11 @@ public class Toint extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		
-		String Pin;
+		String pin;
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
-		Pin = translatorBlock.toCode();
+		pin = translatorBlock.toCode();
 		
-		
-		String ret =  Pin.replaceAll("\"", "")+ ".toInt()";
+		String ret =  pin.replaceAll("\"", "")+ ".toInt()";
 		return codePrefix + ret + codeSuffix;
-	}
-	
+	}	
 }

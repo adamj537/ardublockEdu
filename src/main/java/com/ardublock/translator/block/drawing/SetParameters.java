@@ -44,7 +44,7 @@ public class SetParameters extends TranslatorBlock
 		}
 
 		
-		ret += "\n" + "PaletteRuleConfigRec_stru ruleTbl[]={";
+		ret += "\n" + "PaletteRuleConfigRec_stru ruleTbl[] = {";
 
 		childBlock = getTranslatorBlockAtSocket(2);
 		while (childBlock != null)

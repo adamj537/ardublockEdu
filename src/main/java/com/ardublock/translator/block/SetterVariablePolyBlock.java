@@ -20,16 +20,20 @@ public class SetterVariablePolyBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-		if (!(tb instanceof VariablePolyBlock))	{
+		if (!(tb instanceof VariablePolyBlock))
+		{
 			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.char_var_slot"));
 		}
 		
 		String ret = tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + " = " ;
-		if(tb.toCode().replace("\"","").length()>1){
+		if(tb.toCode().replace("\"","").length()>1)
+		{
     		ret+=tb.toCode() + ";\n";
-    	}else{
+    	}
+		else
+		{
     	    ret+="\'"+tb.toCode().replace("\"","") + "\';\n";
     	}
 		return ret;

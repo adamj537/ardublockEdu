@@ -1634,19 +1634,6 @@
 			</Images>
 		</BlockGenus>
 
-		<BlockGenus name="ultrasonic" kind="data" color="77 191 169" initlabel="bg.ultrasonic">
-			<description>
-				<text>Ultrasonic distance sensor</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="trigger #">
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="echo #">
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="LCD_I2C_Sainsmart_20by4" kind="command" color="205 133 63" initlabel="bg.LCD_I2C_Sainsmart_20by4">
 			<description>
 				<text>20 Char by 4 Line LCD display</text>
@@ -2149,7 +2136,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<!-- ******************** Especial Menu *************** -->
+		<!-- ******************** Special Menu *************** -->
 
 		<BlockGenus name="code_loop" kind="command" color="125 125 125" initlabel="bg.code_loop">
 			<description>
@@ -2225,306 +2212,6 @@
 					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="ir_setport" kind="command" color="245 245 245" initlabel="bg.ir_setport">
-			<description>
-				<text></text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket">
-					<DefaultArg genus-name="number" label="11" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="ir_getcode" kind="command" color="245 245 245" initlabel="bg.ir_getcode">
-			<description>
-				<text></text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="variable_string" label="ir code" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="bluno_println" kind="command" color="255 102 0" initlabel="bg.serial_println">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="message" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="bluno_println_number" kind="command" color="255 102 0" initlabel="bg.bluno_println_number">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket">
-
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="bluno_println_clear" kind="command" color="255 102 0" initlabel="bg.bluno_println_number">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-		</BlockGenus>
-
-		<!-- Xinchejian -->
-
-		<BlockGenus name="xcj_motor_forward" kind="command" color="0 255 0" initlabel="bg.xcj_motor_forward">
-			<description>
-				<text>forward</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="M#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="speed">
-					<DefaultArg genus-name="number" label="255" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/motor.jpg</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_motor_backward" kind="command" color="0 255 0" initlabel="bg.xcj_motor_backward">
-			<description>
-				<text>Moving the car backward</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="M#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="speed">
-					<DefaultArg genus-name="number" label="255" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/motor.jpg</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_ms_digital_write" kind="command" color="0 255 0" initlabel="bg.xcj_ms_digital_write">
-			<description>
-				<text>Write ditial singal to Socket</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="S#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.status">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_ms_digital_read" kind="data" color="0 255 0" initlabel="bg.xcj_ms_digital_read">
-			<description>
-				<text>Read digital status from socket</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="S#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<!-- Workshop block -->
-		<BlockGenus name="ws_setting" kind="command" color="225 116 116" initlabel="bg.workshop_setting">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/setting.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_forward" kind="command" color="225 116 116" initlabel="bg.go_forward">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_forward.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_backward" kind="command" color="225 116 116" initlabel="bg.ws_go_backward">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_backward.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_stop" kind="command" color="225 116 116" initlabel="bg.ws_stop">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/stop.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_turn_left" kind="command" color="225 116 116" initlabel="bg.ws_turn_left">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/turn_left.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_turn_right" kind="command" color="225 116 116" initlabel="bg.ws_turn_right">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/turn_right.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_forward_left" kind="command" color="225 116 116" initlabel="bg.ws_go_forward_left">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_forward_left.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_forward_right" kind="command" color="225 116 116" initlabel="bg.ws_go_forward_right">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_forward_right.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_backward_left" kind="command" color="225 116 116" initlabel="bg.ws_go_backward_left">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_back_left.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_go_backward_right" kind="command" color="225 116 116" initlabel="bg.ws_go_backward_right">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/go_back_right.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-
-		<BlockGenus name="ws_light" kind="command" color="225 116 116" initlabel="bg.ws_light">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/light.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_scan" kind="command" color="225 116 116" initlabel="bg.ws_scan">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/scan.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_music" kind="command" color="225 116 116" initlabel="bg.ws_music">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/music.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_wireless" kind="command" color="225 116 116" initlabel="bg.ws_wireless">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/wireless.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_danger" kind="data" color="225 116 116" initlabel="bg.ws_danger">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/danger.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="ws_binoculars" kind="data" color="225 116 116" initlabel="bg.ws_binoculars">
-			<description>
-				<text>workshop template</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/workshop/binoculars.png</FileLocation>
-				</Image>
-			</Images>
 		</BlockGenus>
 
 		<BlockGenus name="led_mode_flash" kind="data" color="204 153 255" initlabel="bg.led_mode_flash">
@@ -2841,7 +2528,6 @@
 					<BlockGenusMember>pin-write-digital</BlockGenusMember>
 					<BlockGenusMember>pin-write-analog</BlockGenusMember>
 					<BlockGenusMember>pin-toggle</BlockGenusMember>
-					<BlockGenusMember>ultrasonic</BlockGenusMember>
 					<BlockGenusMember>tone</BlockGenusMember>
 					<BlockGenusMember>tone_time</BlockGenusMember>
 					<BlockGenusMember>no_tone</BlockGenusMember>
@@ -2914,7 +2600,6 @@
 				</BlockDrawer>
 				<BlockDrawer button-color="205 133 63" name="bd.utilities" type="factory">
 					<BlockGenusMember>servo_default</BlockGenusMember>
-					<BlockGenusMember>ultrasonic</BlockGenusMember>
 					<BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember>
 					<BlockGenusMember>LCD_command_lightOff</BlockGenusMember>
 					<BlockGenusMember>LCD_PLL_Sainsmart_16by2</BlockGenusMember>
@@ -2931,8 +2616,6 @@
 					<BlockGenusMember>glue_sn</BlockGenusMember>
 					<BlockGenusMember>glue_sb</BlockGenusMember>
 					<BlockGenusMember>glue_poly</BlockGenusMember>
-					<BlockGenusMember>ir_setport</BlockGenusMember>
-					<BlockGenusMember>ir_getcode</BlockGenusMember>
 					<BlockGenusMember>wire_write</BlockGenusMember>
 					<BlockGenusMember>wire_read</BlockGenusMember>
 					<BlockGenusMember>wire_isread</BlockGenusMember>
