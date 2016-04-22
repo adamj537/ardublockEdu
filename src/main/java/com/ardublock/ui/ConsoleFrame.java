@@ -7,9 +7,6 @@ import javax.swing.JFrame;
 
 public class ConsoleFrame extends JFrame
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4057010070646255290L;
 
 	public ConsoleFrame()

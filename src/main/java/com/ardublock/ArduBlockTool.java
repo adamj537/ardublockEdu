@@ -21,8 +21,9 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 	static Editor editor;
 	static ArduBlockToolFrame openblocksFrame;
 	
-	public void init(Editor editor) {
-		if (ArduBlockTool.editor == null )
+	public void init(Editor editor)
+	{
+		if (ArduBlockTool.editor == null)
 		{
 			ArduBlockTool.editor = editor;
 			ArduBlockTool.openblocksFrame = new ArduBlockToolFrame();
@@ -36,25 +37,32 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 		}
 	}
 
-	public void run() {
-		try {
+	public void run()
+	{
+		try
+		{
 			ArduBlockTool.editor.toFront();
 			ArduBlockTool.openblocksFrame.setVisible(true);
 			ArduBlockTool.openblocksFrame.toFront();
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			
 		}
 	}
 
-	public String getMenuTitle() {
+	public String getMenuTitle()
+	{
 		return Context.APP_NAME;
 	}
 
-	public void didSave() {
+	public void didSave()
+	{
 		
 	}
 	
-	public void didLoad() {
+	public void didLoad()
+	{
 		
 	}
 	
@@ -68,7 +76,8 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 		
 	}
 	
-	public void didGenerate(String source) {
+	public void didGenerate(String source)
+	{
 		ArduBlockTool.editor.setText(source);
 		ArduBlockTool.editor.handleExport(false);
 	}
@@ -115,6 +124,5 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 		{
 			return Context.ARDUINO_VERSION_UNKNOWN;
 		}
-		
 	}
 }

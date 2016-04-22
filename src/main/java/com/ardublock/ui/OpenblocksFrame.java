@@ -36,12 +36,8 @@ import com.ardublock.ui.listener.SaveButtonListener;
 import edu.mit.blocks.controller.WorkspaceController;
 import edu.mit.blocks.workspace.Workspace;
 
-
 public class OpenblocksFrame extends JFrame
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2841155965906223806L;
 
 	private Context context;
@@ -57,13 +53,12 @@ public class OpenblocksFrame extends JFrame
 	
 	public String makeFrameTitle()
 	{
-		String title = Context.APP_NAME + " " + context.getSaveFileName();
+		String title = Context.APP_NAME + " - " + context.getSaveFileName();
 		if (context.isWorkspaceChanged())
 		{
 			title = title + " *";
 		}
 		return title;
-		
 	}
 	
 	public OpenblocksFrame()
@@ -72,9 +67,10 @@ public class OpenblocksFrame extends JFrame
 		this.setTitle(makeFrameTitle());
 		this.setSize(new Dimension(1024, 760));
 		this.setLayout(new BorderLayout());
-		//put the frame to the center of screen
+		
+		// put the frame to the center of screen
 		this.setLocationRelativeTo(null);
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		uiMessageBundle = ResourceBundle.getBundle("com/ardublock/block/ardublock");
 		
@@ -89,12 +85,6 @@ public class OpenblocksFrame extends JFrame
 	private void initOpenBlocks()
 	{
 		final Context context = Context.getContext();
-		
-		/*
-		WorkspaceController workspaceController = context.getWorkspaceController();
-		JComponent workspaceComponent = workspaceController.getWorkspacePanel();
-		*/
-		
 		final Workspace workspace = context.getWorkspace();
 		
 		// WTF I can't add worksapcelistener by workspace controller
@@ -129,17 +119,23 @@ public class OpenblocksFrame extends JFrame
 				g.scale(theScaleFactor,theScaleFactor);
 				
 				workspace.getBlockCanvas().getPageAt(0).getJComponent().paint(g);
-				try{
+				try
+				{
 					final JFileChooser fc = new JFileChooser();
 					fc.setSelectedFile(new File("ardublock.png"));
 					int returnVal = fc.showSaveDialog(workspace.getBlockCanvas().getJComponent());
-			        if (returnVal == JFileChooser.APPROVE_OPTION) {
+			        if (returnVal == JFileChooser.APPROVE_OPTION)
+					{
 			            File file = fc.getSelectedFile();
 						ImageIO.write(bi,"png",file);
 			        }
-				} catch (Exception e1) {
+				}
+				catch (Exception e1)
+				{
 					
-				} finally {
+				}
+				finally
+				{
 					g.dispose();
 				}
 			}
@@ -158,14 +154,18 @@ public class OpenblocksFrame extends JFrame
 			public void actionPerformed(ActionEvent e) {
 			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 			    URL url;
-			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-			        try {
+			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE))
+				{
+					try
+					{
 						url = new URL("http://ardublock.com");
-			            desktop.browse(url.toURI());
-			        } catch (Exception e1) {
-			            e1.printStackTrace();
-			        }
-			    }
+						desktop.browse(url.toURI());
+					}
+					catch (Exception e1)
+					{
+						e1.printStackTrace();
+					}
+				}
 			}
 		});
 		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
@@ -174,7 +174,6 @@ public class OpenblocksFrame extends JFrame
 		bottomPanel.add(websiteButton);
 		bottomPanel.add(versionLabel);
 
-		
 		this.add(buttons, BorderLayout.NORTH);
 		this.add(bottomPanel, BorderLayout.SOUTH);
 		this.add(workspace, BorderLayout.CENTER);
@@ -266,7 +265,6 @@ public class OpenblocksFrame extends JFrame
 		String saveString = getArduBlockString();
 		
 		chooseFileAndSave(saveString);
-		
 	}
 	
 	private void chooseFileAndSave(String ardublockString)
@@ -275,12 +273,12 @@ public class OpenblocksFrame extends JFrame
 		saveFile = checkFileSuffix(saveFile);
 		if (saveFile == null)
 		{
-			return ;
+			return;
 		}
 		
 		if (saveFile.exists() && !askUserOverwriteExistedFile())
 		{
-			return ;
+			return;
 		}
 		
 		writeFileAndUpdateFrame(ardublockString, saveFile);
@@ -304,7 +302,6 @@ public class OpenblocksFrame extends JFrame
 		{
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private File letUserChooseSaveFile()
@@ -338,17 +335,15 @@ public class OpenblocksFrame extends JFrame
 			int optionValue = JOptionPane.showOptionDialog(this, uiMessageBundle.getString("message.question.newfile_on_workspace_changed"), uiMessageBundle.getString("message.title.question"), JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, JOptionPane.YES_OPTION);
 			if (optionValue != JOptionPane.YES_OPTION)
 			{
-				return ;
+				return;
 			}
 		}
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		context.resetWorksapce();
+		context.resetWorkspace();
 		context.setWorkspaceChanged(false);
 		this.setTitle(this.makeFrameTitle());
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	}
-	
-	
 	
 	private File checkFileSuffix(File saveFile)
 	{
