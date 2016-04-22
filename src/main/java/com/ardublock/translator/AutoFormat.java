@@ -458,7 +458,9 @@ public class AutoFormat
 
 		// Adding an additional newline as a hack around other errors
 		strOut = new StringBuffer();
-		indentValue = 2;
+		
+		// An indent is 4 spaces.
+		indentValue = 4;
 		indentChar = new String(" ");
 
 		lineNumber = 0;
