@@ -151,7 +151,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.while" connector-kind="socket" connector-type="boolean" />
 				<BlockConnector label="bc.commands" connector-kind="socket" connector-type="cmd" />
 			</BlockConnectors>
 		</BlockGenus>
@@ -163,8 +163,8 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector label="commands" connector-kind="socket" connector-type="cmd" />
-				<BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean">
+				<BlockConnector label="bc.commands" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.while" connector-kind="socket" connector-type="boolean">
 					<DefaultArg genus-name="less" label="Pick a test" />
 				</BlockConnector>    
 			</BlockConnectors>
@@ -211,6 +211,7 @@
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="subroutine-ref" kind="command" color="200 200 0" initlabel="bg.subroutine" editable-label="yes">
 			<description>
 				<text>invoke subroutine</text>
@@ -264,7 +265,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="pin-read-digital-pullup" kind="command" color="77 191 169" initlabel="bg.pin-write-digital">
 			<description>
 				<text>write digital to pin</text>
@@ -285,6 +285,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="pin-write-digital" kind="command" color="77 191 169" initlabel="bg.pin-write-digital">
 			<description>
 				<text>write digital to pin</text>
@@ -806,6 +807,7 @@
 				<BlockConnector connector-type="number" connector-kind="socket" position-type="bottom" />
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="map_common" kind="data" color="149 193 31" initlabel="bg.map_common">
 			<description>
 				<text>map value from [0, 1023] to [0, 255]</text>
@@ -910,6 +912,7 @@
 				<BlockConnector connector-type="number" connector-kind="socket" position-type="bottom" />
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="equal_digital" kind="function" color="222 131 51" initlabel="bg.equal_digital">
 			<description>
 				<text>is upper number greater then lower?</text>
@@ -1025,7 +1028,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="string_greater_equal" kind="data" color="222 131 51" initlabel="bg.string_greater_equal">
 			<description>
 				<text>is upper string greater then lower?</text>
@@ -1070,7 +1072,6 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
-
 
 		<BlockGenus name="string_equalsIgnoreCase" kind="data" color="222 131 51" initlabel="bg.string_equalsIgnoreCase">
 			<description>
@@ -1145,7 +1146,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="or" kind="function" initlabel="bg.or" color="222 131 51">
 			<description>
 				<text>
@@ -1186,8 +1186,6 @@
 				<BlockConnector connector-type="poly" connector-kind="socket" position-type="bottom" />
 			</BlockConnectors>
 		</BlockGenus>
-
-
 
 		<BlockGenus name="not_equal_poly" kind="function" color="222 131 51" initlabel="bg.not_equal_poly">
 			<description>
@@ -1258,6 +1256,7 @@
 		</BlockGenus>	
 
 		<!--****************** Numbers/Constants *************** -->
+
 		<BlockGenus name="millis" kind="data" color="255 153 204" initlabel="bg.millis">
 			<description>
 				<text>Time in milliseconds</text>
@@ -1340,7 +1339,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="true" kind="data" initlabel="bg.true" color="204 153 255" editable-label="no">
 			<description>
 				<text>
@@ -1377,7 +1375,7 @@
 		<BlockGenus name="variable_number_unsigned_long" kind="data" initlabel="bg.variable_number_unsigned_long" editable-label="yes" is-label-value="yes" color="204 102 153">
 			<description>
 				<text>
-	          Unsigned Long Var
+					Unsigned Long Var
 				</text>
 			</description>
 			<BlockConnectors>
@@ -1388,7 +1386,7 @@
 		<BlockGenus name="variable_number_double" kind="data" initlabel="bg.variable_number_double" editable-label="yes" is-label-value="yes" color="51 153 255">
 			<description>
 				<text>
-	          Double
+					Double
 				</text>
 			</description>
 			<BlockConnectors>
@@ -1572,15 +1570,17 @@
 		<BlockGenus name="variable_String" kind="data" initlabel="bg.variable_String" editable-label="yes" is-label-value="yes" color="245 245 245">
 			<description>
 				<text>
-	          Variable String
+					Variable String
 				</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
-		<!--****************** Utilities *************** -->		
-		<BlockGenus name="servo_default" kind="command" color="205 133 63"  initlabel="bg.servo">
+
+		<!--****************** Utilities *************** -->
+
+		<BlockGenus name="servo_default" kind="command" color="205 133 63" initlabel="bg.servo">
 			<description>
 				<text>Servo Default</text>
 			</description>
@@ -1591,11 +1591,6 @@
 					<DefaultArg genus-name="number" label="90" />
 				</BlockConnector>
 			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/SG90.png</FileLocation>
-				</Image>
-			</Images>
 		</BlockGenus>
 
 		<BlockGenus name="servo_sg90" kind="command" color="205 133 63"  initlabel="bg.servo">
@@ -1797,8 +1792,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
-
 		<!-- ******************** Communication *************** -->
 
 		<BlockGenus name="serial_read" kind="data" color="245 245 245" initlabel="bg.serial_read">
@@ -1936,6 +1929,7 @@
 				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="Serialplus_send_variable_number" kind="command" color="232 156 149" initlabel="bg.Serialplus_send_variable_number">
 			<description>
 				<text>Send integer variable</text>
@@ -1955,6 +1949,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="Serialplus_send_variable_digital" kind="command" color="204 153 255" initlabel="bg.Serialplus_send_variable_digital">
 			<description>
 				<text>Send digital </text>
@@ -1974,6 +1969,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="Serialplus_receive_number" kind="data" color="232 156 149" initlabel="bg.Serialplus_receive_number">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug"/>
@@ -1985,6 +1981,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="Serialplus_receive_digital" kind="data" color="204 153 255" initlabel="bg.Serialplus_receive_digital">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug"/>
@@ -1998,6 +1995,7 @@
 		</BlockGenus>
 
 		<!-- ******************** Storage *************** -->
+
 		<BlockGenus name="eeprom_read_int" kind="data" color="0 100 90" initlabel="bg.eeprom_read_int">
 			<description>
 				<text>EEPROM Read integer </text>
@@ -2148,6 +2146,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="code_head" kind="command" color="125 125 125" initlabel="bg.code_head">
 			<description>
 				<text>send message via Serial port</text>
@@ -2158,6 +2157,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+
 		<BlockGenus name="code_setup" kind="command" color="125 125 125" initlabel="bg.code_setup">
 			<description>
 				<text>send message via Serial port</text>
@@ -2170,6 +2170,7 @@
 		</BlockGenus>
 
 		<!-- ******************** Unused/Obsoletes *************** -->
+
 		<BlockGenus name="glue_msg" kind="data" color="245 245 245" initlabel="bg.glue_msg" editable-label="yes">
 			<description>
 				<text></text>
@@ -2351,17 +2352,20 @@
 				<FamilyMember>PINH</FamilyMember>
 				<FamilyMember>PINL</FamilyMember>
 			</BlockFamily>
-
 	</BlockFamilies>
 
 		<BlockDrawerSets>
 			<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
-				<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 255 0">
+				<BlockDrawer name="bd.functions" type="factory" is-open="yes" button-color="255 255 0">
 					<BlockGenusMember>loop</BlockGenusMember>
 					<BlockGenusMember>program</BlockGenusMember>
-					<BlockGenusMember>delay</BlockGenusMember>
-					<BlockGenusMember>delay_microseconds</BlockGenusMember>
-					<BlockGenusMember>millis</BlockGenusMember>
+					<BlockGenusMember>subroutine</BlockGenusMember>
+					<BlockGenusMember>subroutine-ref</BlockGenusMember>
+					<BlockGenusMember>subroutine_var</BlockGenusMember>
+					<BlockGenusMember>subroutine-ref_var</BlockGenusMember>
+					<BlockGenusMember>ref_var</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 128 0">
 					<BlockGenusMember>if</BlockGenusMember>
 					<BlockGenusMember>ifelse</BlockGenusMember>
 					<BlockGenusMember>while</BlockGenusMember>
@@ -2370,11 +2374,6 @@
 					<BlockGenusMember>repeat</BlockGenusMember>
 					<BlockGenusMember>repeat_control</BlockGenusMember>
 					<BlockGenusMember>break</BlockGenusMember>
-					<BlockGenusMember>subroutine</BlockGenusMember>
-					<BlockGenusMember>subroutine-ref</BlockGenusMember>
-					<BlockGenusMember>subroutine_var</BlockGenusMember>
-					<BlockGenusMember>subroutine-ref_var</BlockGenusMember>
-					<BlockGenusMember>ref_var</BlockGenusMember>
 				</BlockDrawer>
 				<BlockDrawer button-color="29 152 155" name="bd.pins" type="factory">
 					<BlockGenusMember>pin-read-digital</BlockGenusMember>
@@ -2451,6 +2450,11 @@
 					<BlockGenusMember>create_variable_vector</BlockGenusMember>
 					<BlockGenusMember>variable_vector</BlockGenusMember>
 					<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer button-color="100 255 0" name="bd.time" type="factory" is-open="yes">
+					<BlockGenusMember>delay</BlockGenusMember>
+					<BlockGenusMember>delay_microseconds</BlockGenusMember>
+					<BlockGenusMember>millis</BlockGenusMember>
 				</BlockDrawer>
 				<BlockDrawer button-color="205 133 63" name="bd.utilities" type="factory">
 					<BlockGenusMember>servo_default</BlockGenusMember>
