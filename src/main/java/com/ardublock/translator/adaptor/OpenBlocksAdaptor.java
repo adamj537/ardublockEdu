@@ -53,7 +53,6 @@ public class OpenBlocksAdaptor implements BlockAdaptor
 			TranslatorBlock translatorBlock = translatorBlockFactory.buildTranslatorBlock(translator, blockId, block.getGenusName(), codePrefix, codeSuffix, block.getBlockLabel());
 			return translatorBlock;
 		}
-		
 	}
 	
 }
