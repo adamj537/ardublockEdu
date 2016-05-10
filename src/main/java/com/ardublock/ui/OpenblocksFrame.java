@@ -87,7 +87,7 @@ public class OpenblocksFrame extends JFrame
 		final Context context = Context.getContext();
 		final Workspace workspace = context.getWorkspace();
 		
-		// WTF I can't add worksapcelistener by workspace controller
+		// WTF I can't add workspacelistener by workspace controller
 		workspace.addWorkspaceListener(new ArdublockWorkspaceListener(this));
 		
 		JPanel buttons = new JPanel();
