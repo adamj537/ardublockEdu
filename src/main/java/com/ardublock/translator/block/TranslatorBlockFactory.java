@@ -55,27 +55,27 @@ public class TranslatorBlockFactory
 		}
 		catch (IllegalArgumentException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (InstantiationException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (IllegalAccessException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (InvocationTargetException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (SecurityException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (NoSuchMethodException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 		catch (ClassNotFoundException e)
 		{

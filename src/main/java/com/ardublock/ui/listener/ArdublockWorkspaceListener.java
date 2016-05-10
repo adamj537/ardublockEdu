@@ -32,13 +32,11 @@ public class ArdublockWorkspaceListener implements WorkspaceListener
 		}
 		context.resetHightlightBlock();
 		
-		
 		Iterable<Block> blocks = context.getWorkspace().getBlocks();
 		for (Block block : blocks)
 		{
 			//System.out.println(block.getBlockID() + ": " + block.getBlockLabel());
 		}
 		//System.out.println("======================\n\n");
-		
 	}
 }

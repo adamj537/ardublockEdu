@@ -55,7 +55,6 @@ public class GenerateCodeButtonListener implements ActionListener
 			
 			if (!block.hasPlug() && (Block.NULL.equals(block.getBeforeBlockID())))
 			{
-				
 				if(block.getGenusName().equals("loop"))
 				{
 					loopBlockSet.add(renderableBlock);
@@ -114,7 +113,7 @@ public class GenerateCodeButtonListener implements ActionListener
 				}
 			}
 		}
-		if (loopBlockSet.size() == 0)
+		if (loopBlockSet.isEmpty())
 		{
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.noLoopFound"), "Error", JOptionPane.ERROR_MESSAGE);
 			return ;
@@ -150,7 +149,7 @@ public class GenerateCodeButtonListener implements ActionListener
 		}
 		catch (SocketNullException e1)
 		{
-			e1.printStackTrace();
+			e1.printStackTrace(System.err);
 			success = false;
 			Long blockId = e1.getBlockId();
 			Iterable<RenderableBlock> blocks = workspace.getRenderableBlocks();
@@ -167,7 +166,7 @@ public class GenerateCodeButtonListener implements ActionListener
 		}
 		catch (BlockException e2)
 		{
-			e2.printStackTrace();
+			e2.printStackTrace(System.err);
 			success = false;
 			Long blockId = e2.getBlockId();
 			Iterable<RenderableBlock> blocks = workspace.getRenderableBlocks();
@@ -184,7 +183,7 @@ public class GenerateCodeButtonListener implements ActionListener
 		}
 		catch (SubroutineNotDeclaredException e3)
 		{
-			e3.printStackTrace();
+			e3.printStackTrace(System.err);
 			success = false;
 			Long blockId = e3.getBlockId();
 			Iterable<RenderableBlock> blocks = workspace.getRenderableBlocks();

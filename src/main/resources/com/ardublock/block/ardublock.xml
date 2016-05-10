@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE BlockLangDef SYSTEM "lang_def.dtd">
-<!-- This describes every BlockGenus, BlockDrawer, BlockFamilies in Starlogo-TNG. Note: For BlockGenus, if genus A relies on another genus B, that genus B must be specified in the xml 
-	file before genus A is specified./ We impose this requirement so that sanity checks can be made regarding the validity of a default argument when the BlockGenuses are first loaded. -->
+<!-- This describes every BlockGenus, BlockDrawer, BlockFamily. 
+	Note: For BlockGenus, if genus A relies on another genus B, that genus B 
+	must be specified in the xml file before genus A is specified./ We impose 
+	this requirement so that sanity checks can be made regarding the validity 
+	of a default argument when the BlockGenuses are first loaded. -->
 <BlockLangDef>
 
 	<BlockConnectorShapes>
@@ -71,7 +74,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<!-- legacy support -->
+		<!-- legacy support TODO:  maybe remove these, especially the loop1, loop2, loop3? -->
 
 		<BlockGenus name="loop1" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="no" />
 
@@ -2317,7 +2320,7 @@
 				<FamilyMember>servo_mg996r</FamilyMember>
 			</BlockFamily>
 			<BlockFamily>
-			<FamilyMember>DDRA</FamilyMember>
+				<FamilyMember>DDRA</FamilyMember>
 				<FamilyMember>DDRB</FamilyMember>
 				<FamilyMember>DDRC</FamilyMember>
 				<FamilyMember>DDRD</FamilyMember>
@@ -2375,21 +2378,9 @@
 					<BlockGenusMember>repeat_control</BlockGenusMember>
 					<BlockGenusMember>break</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="29 152 155" name="bd.pins" type="factory">
-					<BlockGenusMember>pin-read-digital</BlockGenusMember>
-					<BlockGenusMember>pin-read-analog</BlockGenusMember>
-					<BlockGenusMember>pin-write-digital</BlockGenusMember>
-					<BlockGenusMember>pin-write-analog</BlockGenusMember>
-					<BlockGenusMember>pin-toggle</BlockGenusMember>
-					<BlockGenusMember>tone</BlockGenusMember>
-					<BlockGenusMember>tone_time</BlockGenusMember>
-					<BlockGenusMember>no_tone</BlockGenusMember>
-					<BlockGenusMember>DDRA</BlockGenusMember>
-					<BlockGenusMember>PORTA</BlockGenusMember>
-					<BlockGenusMember>PORT_FIX</BlockGenusMember>
-					<BlockGenusMember>PINA</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer button-color="255 163 82" name="bd.logic" type="factory">
+				<BlockDrawer name="bd.logic" button-color="255 163 82" type="factory">
+					<BlockGenusMember>true</BlockGenusMember>
+					<BlockGenusMember>false</BlockGenusMember>
 					<BlockGenusMember>greater</BlockGenusMember>
 					<BlockGenusMember>less</BlockGenusMember>
 					<BlockGenusMember>equal</BlockGenusMember>
@@ -2409,7 +2400,7 @@
 					<BlockGenusMember>string_empty</BlockGenusMember>
 					<BlockGenusMember>string_toInt</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="114 147 71" name="bd.operators" type="factory">
+				<BlockDrawer name="bd.operators" button-color="114 147 71" type="factory">
 					<BlockGenusMember>addition</BlockGenusMember>
 					<BlockGenusMember>subtraction</BlockGenusMember>
 					<BlockGenusMember>multiplication</BlockGenusMember>
@@ -2426,7 +2417,21 @@
 					<BlockGenusMember>toint</BlockGenusMember>
 					<BlockGenusMember>constrain</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="232 156 149" name="bd.number" type="factory">
+				<BlockDrawer name="bd.pins" button-color="29 152 155" type="factory">
+					<BlockGenusMember>pin-read-digital</BlockGenusMember>
+					<BlockGenusMember>pin-read-analog</BlockGenusMember>
+					<BlockGenusMember>pin-write-digital</BlockGenusMember>
+					<BlockGenusMember>pin-write-analog</BlockGenusMember>
+					<BlockGenusMember>pin-toggle</BlockGenusMember>
+					<BlockGenusMember>tone</BlockGenusMember>
+					<BlockGenusMember>tone_time</BlockGenusMember>
+					<BlockGenusMember>no_tone</BlockGenusMember>
+					<BlockGenusMember>DDRA</BlockGenusMember>
+					<BlockGenusMember>PORTA</BlockGenusMember>
+					<BlockGenusMember>PORT_FIX</BlockGenusMember>
+					<BlockGenusMember>PINA</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer name="bd.number" button-color="232 156 149" type="factory">
 					<BlockGenusMember>number</BlockGenusMember>
 					<BlockGenusMember>setter_variable_number</BlockGenusMember>
 					<BlockGenusMember>variable_number</BlockGenusMember>
@@ -2436,8 +2441,6 @@
 					<BlockGenusMember>variable_digital</BlockGenusMember>
 					<BlockGenusMember>digital-low</BlockGenusMember>
 					<BlockGenusMember>digital-high</BlockGenusMember>
-					<BlockGenusMember>true</BlockGenusMember>
-					<BlockGenusMember>false</BlockGenusMember>
 					<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 					<BlockGenusMember>variable_number_double</BlockGenusMember>
 					<BlockGenusMember>number_double</BlockGenusMember>
@@ -2451,20 +2454,22 @@
 					<BlockGenusMember>variable_vector</BlockGenusMember>
 					<BlockGenusMember>setter_variable_vector</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="100 255 0" name="bd.time" type="factory" is-open="yes">
+				<BlockDrawer name="bd.time" button-color="100 255 0" type="factory" is-open="yes">
 					<BlockGenusMember>delay</BlockGenusMember>
 					<BlockGenusMember>delay_microseconds</BlockGenusMember>
 					<BlockGenusMember>millis</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="205 133 63" name="bd.utilities" type="factory">
-					<BlockGenusMember>servo_default</BlockGenusMember>
+				<BlockDrawer name="bd.lcd" button-color="205 133 63" type="factory">
 					<BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember>
 					<BlockGenusMember>LCD_command_lightOff</BlockGenusMember>
 					<BlockGenusMember>LCD_PLL_Sainsmart_16by2</BlockGenusMember>
 					<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
 					<BlockGenusMember>number-single-fixed-parallel</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="255 255 255" name="bd.communication" type="factory">
+				<BlockDrawer name="bd.servo" button-color="205 133 63" type="factory">
+					<BlockGenusMember>servo_default</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer name="bd.serial" button-color="255 255 255" type="factory">
 					<BlockGenusMember>serial_available</BlockGenusMember>
 					<BlockGenusMember>serial_available2</BlockGenusMember>
 					<BlockGenusMember>serial_read</BlockGenusMember>
@@ -2474,21 +2479,25 @@
 					<BlockGenusMember>glue_sn</BlockGenusMember>
 					<BlockGenusMember>glue_sb</BlockGenusMember>
 					<BlockGenusMember>glue_poly</BlockGenusMember>
-					<BlockGenusMember>wire_write</BlockGenusMember>
-					<BlockGenusMember>wire_read</BlockGenusMember>
-					<BlockGenusMember>wire_isread</BlockGenusMember>
 					<BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
 					<BlockGenusMember>Serialplus_send_variable_digital</BlockGenusMember>
 					<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
 					<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="0 50 45" name="bd.storage" type="factory">
+				<BlockDrawer name="bd.wire" button-color="255 255 255" type="factory">
+					<BlockGenusMember>wire_write</BlockGenusMember>
+					<BlockGenusMember>wire_read</BlockGenusMember>
+					<BlockGenusMember>wire_isread</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer name="bd.eeprom" button-color="0 50 45" type="factory">
 					<BlockGenusMember>eeprom_read_int</BlockGenusMember>
 					<BlockGenusMember>eeprom_write_int</BlockGenusMember>
 					<BlockGenusMember>eeprom_read_long</BlockGenusMember>
 					<BlockGenusMember>eeprom_write_long</BlockGenusMember>
 					<BlockGenusMember>eeprom_read</BlockGenusMember>
 					<BlockGenusMember>eeprom_write</BlockGenusMember>
+				</BlockDrawer>
+				<BlockDrawer name="bd.sd" button-color="0 50 45" type="factory">
 					<BlockGenusMember>sd_write2</BlockGenusMember>
 					<BlockGenusMember>MaSD_Connect</BlockGenusMember>
 					<BlockGenusMember>MaSD_file</BlockGenusMember>
@@ -2496,7 +2505,7 @@
 					<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
 					<BlockGenusMember>MaSD_separator</BlockGenusMember>
 				</BlockDrawer>
-				<BlockDrawer button-color="120 120 120" name="bd.especial" type="factory">
+				<BlockDrawer name="bd.code" button-color="120 120 120" type="factory">
 					<BlockGenusMember>code_head</BlockGenusMember>
 					<BlockGenusMember>code_setup</BlockGenusMember>
 					<BlockGenusMember>code_loop</BlockGenusMember>

@@ -163,7 +163,7 @@ public class OpenblocksFrame extends JFrame
 					}
 					catch (Exception e1)
 					{
-						e1.printStackTrace();
+						e1.printStackTrace(System.err);
 					}
 				}
 			}
@@ -225,7 +225,7 @@ public class OpenblocksFrame extends JFrame
 			catch (IOException e)
 			{
 				JOptionPane.showOptionDialog(this, uiMessageBundle.getString("message.file_not_found"), uiMessageBundle.getString("message.title.error"), JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, null, JOptionPane.OK_OPTION);
-				e.printStackTrace();
+				e.printStackTrace(System.err);
 			}
 			finally
 			{
@@ -300,7 +300,7 @@ public class OpenblocksFrame extends JFrame
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		}
 	}
 	

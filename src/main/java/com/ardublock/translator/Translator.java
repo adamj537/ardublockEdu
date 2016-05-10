@@ -101,7 +101,6 @@ public class Translator
 			{
 				setupFunction.append(command + "\n");
 			}
-			
 		}
 
 		setupFunction.append("}\n\n");
@@ -115,8 +114,8 @@ public class Translator
 		Block block = workspace.getEnv().getBlock(blockId);
 		TranslatorBlock rootTranslatorBlock = translatorBlockFactory.buildTranslatorBlock(this, blockId, block.getGenusName(), "", "", block.getBlockLabel());
 		return rootTranslatorBlock.toCode();
-	}
-	
+		}
+		
 	public BlockAdaptor getBlockAdaptor()
 	{
 		return blockAdaptor;

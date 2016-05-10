@@ -116,7 +116,7 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 			}
 			catch (IOException e)
 			{
-				e.printStackTrace();
+				e.printStackTrace(System.err);
 				return Context.ARDUINO_VERSION_UNKNOWN;
 			}
 		}
