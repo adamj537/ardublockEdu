@@ -15,6 +15,9 @@ After building this, copy the target/ardublock-all.jar to Arduino\tools\ArduBloc
 Authors
 ----
 * Adam Johnson adamj537@gmail.com
+Authors of the original version:
+* David Li taweili@gmail.com
+* HE Qichen heqichen@gmail.com
 
 License
 ----
