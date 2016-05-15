@@ -46,6 +46,7 @@ public class GenerateCodeButtonListener implements ActionListener
 		Iterable<RenderableBlock> renderableBlocks = workspace.getRenderableBlocks();
 		
 		Set<RenderableBlock> loopBlockSet = new HashSet<RenderableBlock>();
+		Set<RenderableBlock> setupBlockSet = new HashSet<RenderableBlock>();
 		Set<RenderableBlock> subroutineBlockSet = new HashSet<RenderableBlock>();
 		StringBuilder code = new StringBuilder();
 		
@@ -55,29 +56,29 @@ public class GenerateCodeButtonListener implements ActionListener
 			
 			if (!block.hasPlug() && (Block.NULL.equals(block.getBeforeBlockID())))
 			{
-				if(block.getGenusName().equals("loop"))
+				if (block.getGenusName().equals("loop"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}
-				if(block.getGenusName().equals("loop1"))
+				if (block.getGenusName().equals("loop1"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}
-				if(block.getGenusName().equals("loop2"))
+				if (block.getGenusName().equals("loop2"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}
-				if(block.getGenusName().equals("loop3"))
+				if (block.getGenusName().equals("loop3"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}
-				if(block.getGenusName().equals("program"))
+				if (block.getGenusName().equals("program"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}
-				if(block.getGenusName().equals("setup"))
+				if (block.getGenusName().equals("setup"))
 				{
-					loopBlockSet.add(renderableBlock);
+					setupBlockSet.add(renderableBlock);
 				}
 				if (block.getGenusName().equals("subroutine"))
 				{
@@ -88,8 +89,10 @@ public class GenerateCodeButtonListener implements ActionListener
 					}
 					catch (SubroutineNameDuplicatedException e1)
 					{
+						// Highlight the offending block.
 						context.highlightBlock(renderableBlock);
-						//find the second subroutine whose name is defined, and make it highlight. though it cannot happen due to constraint of OpenBlocks -_-
+						
+						// Display an error message.
 						JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.subroutineNameDuplicated"), "Error", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
@@ -104,8 +107,10 @@ public class GenerateCodeButtonListener implements ActionListener
 					}
 					catch (SubroutineNameDuplicatedException e1)
 					{
+						// Highlight the offending block.
 						context.highlightBlock(renderableBlock);
-						//find the second subroutine whose name is defined, and make it highlight. though it cannot happen due to constraint of OpenBlocks -_-
+						
+						// Display an error message.
 						JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.subroutineNameDuplicated"), "Error", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
@@ -113,23 +118,44 @@ public class GenerateCodeButtonListener implements ActionListener
 				}
 			}
 		}
+		
+		// Make sure there's exactly one "loop" block.
 		if (loopBlockSet.isEmpty())
 		{
+			// Display an error message.
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.noLoopFound"), "Error", JOptionPane.ERROR_MESSAGE);
 			return ;
 		}
 		if (loopBlockSet.size() > 1)
 		{
+			// Highlight each "loop" block.
 			for (RenderableBlock rb : loopBlockSet)
 			{
 				context.highlightBlock(rb);
 			}
+			
+			// Display an error message.
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.multipleLoopFound"), "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		// Make sure there's no more than one "setup" block.
+		if (setupBlockSet.size() > 1)
+		{
+			// Highlight each "setup" block.
+			for (RenderableBlock rb : setupBlockSet)
+			{
+				context.highlightBlock(rb);
+			}
+			
+			// Display an error message.
+			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.multipleSetupFound"), "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
 		try
 		{
+			// Translate the loop code blocks.
 			for (RenderableBlock renderableBlock : loopBlockSet)
 			{
 				translator.setRootBlockName("loop");
@@ -137,6 +163,7 @@ public class GenerateCodeButtonListener implements ActionListener
 				code.append(translator.translate(loopBlock.getBlockID()));
 			}
 			
+			// Translate other subroutine code blocks.
 			for (RenderableBlock renderableBlock : subroutineBlockSet)
 			{
 				translator.setRootBlockName("subroutine");
@@ -144,8 +171,16 @@ public class GenerateCodeButtonListener implements ActionListener
 				code.append(translator.translate(subroutineBlock.getBlockID()));
 			}
 			
+			// Translate setup code blocks.
+			for (RenderableBlock renderableBlock : setupBlockSet)
+			{
+				translator.setRootBlockName("setup");
+				Block setupBlock = renderableBlock.getBlock();
+				code.append(translator.translate(setupBlock.getBlockID()));
+			}
+			
 			translator.beforeGenerateHeader();
-			code.insert(0, translator.genreateHeaderCommand());
+			code.insert(0, translator.generateHeaderCommand());
 		}
 		catch (SocketNullException e1)
 		{

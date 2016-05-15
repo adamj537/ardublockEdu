@@ -41,7 +41,7 @@ public class Translator
 		reset();
 	}
 	
-	public String genreateHeaderCommand()
+	public String generateHeaderCommand()
 	{
 		StringBuilder headerCommand = new StringBuilder();
 		
@@ -358,7 +358,7 @@ public class Translator
 			code.append(translate(subroutineBlock.getBlockID()));
 		}
 		beforeGenerateHeader();
-		code.insert(0, genreateHeaderCommand());
+		code.insert(0, generateHeaderCommand());
 		
 		return code.toString();
 	}

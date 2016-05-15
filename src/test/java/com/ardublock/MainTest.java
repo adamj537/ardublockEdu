@@ -66,8 +66,8 @@ public class MainTest
 	}
 	
 	@Test
-	public void testSingleLoop() {
+	public void testSingleLoop()
+	{
 		System.out.println("### testSingleLoop");
-		
 	}
 }

@@ -55,19 +55,18 @@
 
 		<!-- ******************** Controls Menu *************** -->
 
-		<BlockGenus name="program" kind="command" color="255 240 0" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="no">
+		<BlockGenus name="setup" kind="command" color="255 240 0" initlabel="bg.setup" is-starter="yes" is-terminator="yes" label-unique="no">
 			<description>
-				<text>this is the loop of the arduino</text>
+				<text>this is the setup function of the arduino</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.setup" />
-				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.loop" />
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
 			</BlockConnectors>
 		</BlockGenus>
 
 		<BlockGenus name="loop" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
-				<text>this is the loop of the arduino</text>
+				<text>this is the loop function of the arduino</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
@@ -2231,296 +2230,296 @@
 
 		</BlockGenuses>
 
-		<BlockFamilies>
-			<BlockFamily>
-				<FamilyMember>digital-high</FamilyMember>
-				<FamilyMember>digital-low</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>and</FamilyMember>
-				<FamilyMember>or</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>true</FamilyMember>
-				<FamilyMember>false</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>addition</FamilyMember>
-				<FamilyMember>subtraction</FamilyMember>
-				<FamilyMember>multiplication</FamilyMember>
-				<FamilyMember>division</FamilyMember>
-				<FamilyMember>modulo</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>min</FamilyMember>
-				<FamilyMember>max</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>greater</FamilyMember>
-				<FamilyMember>less</FamilyMember>
-				<FamilyMember>equal</FamilyMember>
-				<FamilyMember>greater_equal</FamilyMember>
-				<FamilyMember>less_equal</FamilyMember>
-				<FamilyMember>not_equal</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>equal_digital</FamilyMember>
-				<FamilyMember>not_equal_digital</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>equal_poly</FamilyMember>
-				<FamilyMember>not_equal_poly</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>string_greater</FamilyMember>
-				<FamilyMember>string_less</FamilyMember>
-				<FamilyMember>string_equal</FamilyMember>
-				<FamilyMember>string_greater_equal</FamilyMember>
-				<FamilyMember>string_less_equal</FamilyMember>
-				<FamilyMember>string_not_equal</FamilyMember>
-				<FamilyMember>string_equals</FamilyMember>
-				<FamilyMember>string_equalsIgnoreCase</FamilyMember>
-				<FamilyMember>string_compareTo</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>equal_string</FamilyMember>
-				<FamilyMember>not_equal_string</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>sin</FamilyMember>
-				<FamilyMember>cos</FamilyMember>
-				<FamilyMember>tan</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>code_head</FamilyMember>
-				<FamilyMember>code_setup</FamilyMember>
-				<FamilyMember>code_loop</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>digital-on</FamilyMember>
-				<FamilyMember>digital-off</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>LCD_I2C_Sainsmart_20by4</FamilyMember>
-				<FamilyMember>LCD_I2C_Sainsmart_16by2</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>LCD_command_clear</FamilyMember>
-				<FamilyMember>LCD_command_home</FamilyMember>
-				<FamilyMember>LCD_command_lightOff</FamilyMember>
-				<FamilyMember>LCD_command_lightOn</FamilyMember>
-				<FamilyMember>LCD_command_cursorOn</FamilyMember>
-				<FamilyMember>LCD_command_cursorOff</FamilyMember>
-				<FamilyMember>LCD_command_blinkOn</FamilyMember>
-				<FamilyMember>LCD_command_blinkOff</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>servo_default</FamilyMember>
-				<FamilyMember>servo_sg90</FamilyMember>
-				<FamilyMember>servo_mg996r</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>DDRA</FamilyMember>
-				<FamilyMember>DDRB</FamilyMember>
-				<FamilyMember>DDRC</FamilyMember>
-				<FamilyMember>DDRD</FamilyMember>
-				<FamilyMember>DDRH</FamilyMember>
-				<FamilyMember>DDRL</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>PORTA</FamilyMember>
-				<FamilyMember>PORTB</FamilyMember>
-				<FamilyMember>PORTC</FamilyMember>
-				<FamilyMember>PORTD</FamilyMember>
-				<FamilyMember>PORTH</FamilyMember>
-				<FamilyMember>PORTL</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>PORTA2</FamilyMember>
-				<FamilyMember>PORTB2</FamilyMember>
-				<FamilyMember>PORTC2</FamilyMember>
-				<FamilyMember>PORTD2</FamilyMember>
-				<FamilyMember>PORTH2</FamilyMember>
-				<FamilyMember>PORTL2</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>LEVEL1</FamilyMember>
-				<FamilyMember>LEVEL0</FamilyMember>
-			</BlockFamily>
-			<BlockFamily>
-				<FamilyMember>PINA</FamilyMember>
-				<FamilyMember>PINB</FamilyMember>
-				<FamilyMember>PINC</FamilyMember>
-				<FamilyMember>PIND</FamilyMember>
-				<FamilyMember>PINH</FamilyMember>
-				<FamilyMember>PINL</FamilyMember>
-			</BlockFamily>
-	</BlockFamilies>
+	<BlockFamilies>
+		<BlockFamily>
+			<FamilyMember>digital-high</FamilyMember>
+			<FamilyMember>digital-low</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>and</FamilyMember>
+			<FamilyMember>or</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>true</FamilyMember>
+			<FamilyMember>false</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>addition</FamilyMember>
+			<FamilyMember>subtraction</FamilyMember>
+			<FamilyMember>multiplication</FamilyMember>
+			<FamilyMember>division</FamilyMember>
+			<FamilyMember>modulo</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>min</FamilyMember>
+			<FamilyMember>max</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>greater</FamilyMember>
+			<FamilyMember>less</FamilyMember>
+			<FamilyMember>equal</FamilyMember>
+			<FamilyMember>greater_equal</FamilyMember>
+			<FamilyMember>less_equal</FamilyMember>
+			<FamilyMember>not_equal</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>equal_digital</FamilyMember>
+			<FamilyMember>not_equal_digital</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>equal_poly</FamilyMember>
+			<FamilyMember>not_equal_poly</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>string_greater</FamilyMember>
+			<FamilyMember>string_less</FamilyMember>
+			<FamilyMember>string_equal</FamilyMember>
+			<FamilyMember>string_greater_equal</FamilyMember>
+			<FamilyMember>string_less_equal</FamilyMember>
+			<FamilyMember>string_not_equal</FamilyMember>
+			<FamilyMember>string_equals</FamilyMember>
+			<FamilyMember>string_equalsIgnoreCase</FamilyMember>
+			<FamilyMember>string_compareTo</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>equal_string</FamilyMember>
+			<FamilyMember>not_equal_string</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>sin</FamilyMember>
+			<FamilyMember>cos</FamilyMember>
+			<FamilyMember>tan</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>code_head</FamilyMember>
+			<FamilyMember>code_setup</FamilyMember>
+			<FamilyMember>code_loop</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>digital-on</FamilyMember>
+			<FamilyMember>digital-off</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>LCD_I2C_Sainsmart_20by4</FamilyMember>
+			<FamilyMember>LCD_I2C_Sainsmart_16by2</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>LCD_command_clear</FamilyMember>
+			<FamilyMember>LCD_command_home</FamilyMember>
+			<FamilyMember>LCD_command_lightOff</FamilyMember>
+			<FamilyMember>LCD_command_lightOn</FamilyMember>
+			<FamilyMember>LCD_command_cursorOn</FamilyMember>
+			<FamilyMember>LCD_command_cursorOff</FamilyMember>
+			<FamilyMember>LCD_command_blinkOn</FamilyMember>
+			<FamilyMember>LCD_command_blinkOff</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>servo_default</FamilyMember>
+			<FamilyMember>servo_sg90</FamilyMember>
+			<FamilyMember>servo_mg996r</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>DDRA</FamilyMember>
+			<FamilyMember>DDRB</FamilyMember>
+			<FamilyMember>DDRC</FamilyMember>
+			<FamilyMember>DDRD</FamilyMember>
+			<FamilyMember>DDRH</FamilyMember>
+			<FamilyMember>DDRL</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>PORTA</FamilyMember>
+			<FamilyMember>PORTB</FamilyMember>
+			<FamilyMember>PORTC</FamilyMember>
+			<FamilyMember>PORTD</FamilyMember>
+			<FamilyMember>PORTH</FamilyMember>
+			<FamilyMember>PORTL</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>PORTA2</FamilyMember>
+			<FamilyMember>PORTB2</FamilyMember>
+			<FamilyMember>PORTC2</FamilyMember>
+			<FamilyMember>PORTD2</FamilyMember>
+			<FamilyMember>PORTH2</FamilyMember>
+			<FamilyMember>PORTL2</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>LEVEL1</FamilyMember>
+			<FamilyMember>LEVEL0</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>PINA</FamilyMember>
+			<FamilyMember>PINB</FamilyMember>
+			<FamilyMember>PINC</FamilyMember>
+			<FamilyMember>PIND</FamilyMember>
+			<FamilyMember>PINH</FamilyMember>
+			<FamilyMember>PINL</FamilyMember>
+		</BlockFamily>
+</BlockFamilies>
 
-		<BlockDrawerSets>
-			<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
-				<BlockDrawer name="bd.functions" type="factory" is-open="yes" button-color="255 255 0">
-					<BlockGenusMember>loop</BlockGenusMember>
-					<BlockGenusMember>program</BlockGenusMember>
-					<BlockGenusMember>subroutine</BlockGenusMember>
-					<BlockGenusMember>subroutine-ref</BlockGenusMember>
-					<BlockGenusMember>subroutine_var</BlockGenusMember>
-					<BlockGenusMember>subroutine-ref_var</BlockGenusMember>
-					<BlockGenusMember>ref_var</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 128 0">
-					<BlockGenusMember>if</BlockGenusMember>
-					<BlockGenusMember>ifelse</BlockGenusMember>
-					<BlockGenusMember>while</BlockGenusMember>
-					<BlockGenusMember>do_while</BlockGenusMember>
-					<BlockGenusMember>repeat_times</BlockGenusMember>
-					<BlockGenusMember>repeat</BlockGenusMember>
-					<BlockGenusMember>repeat_control</BlockGenusMember>
-					<BlockGenusMember>break</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.logic" button-color="255 163 82" type="factory">
-					<BlockGenusMember>true</BlockGenusMember>
-					<BlockGenusMember>false</BlockGenusMember>
-					<BlockGenusMember>greater</BlockGenusMember>
-					<BlockGenusMember>less</BlockGenusMember>
-					<BlockGenusMember>equal</BlockGenusMember>
-					<BlockGenusMember>greater_equal</BlockGenusMember>
-					<BlockGenusMember>less_equal</BlockGenusMember>
-					<BlockGenusMember>not_equal</BlockGenusMember>
-					<BlockGenusMember>equal_digital</BlockGenusMember>
-					<BlockGenusMember>not_equal_digital</BlockGenusMember>
-					<BlockGenusMember>equal_poly</BlockGenusMember>
-					<BlockGenusMember>not_equal_poly</BlockGenusMember>
-					<BlockGenusMember>equal_string</BlockGenusMember>
-					<BlockGenusMember>not_equal_string</BlockGenusMember>
-					<BlockGenusMember>and</BlockGenusMember>
-					<BlockGenusMember>or</BlockGenusMember>
-					<BlockGenusMember>not</BlockGenusMember>
-					<BlockGenusMember>string_equal</BlockGenusMember>
-					<BlockGenusMember>string_empty</BlockGenusMember>
-					<BlockGenusMember>string_toInt</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.operators" button-color="114 147 71" type="factory">
-					<BlockGenusMember>addition</BlockGenusMember>
-					<BlockGenusMember>subtraction</BlockGenusMember>
-					<BlockGenusMember>multiplication</BlockGenusMember>
-					<BlockGenusMember>division</BlockGenusMember>
-					<BlockGenusMember>modulo</BlockGenusMember>
-					<BlockGenusMember>abs</BlockGenusMember>
-					<BlockGenusMember>pow</BlockGenusMember>
-					<BlockGenusMember>sqrt</BlockGenusMember>
-					<BlockGenusMember>sin</BlockGenusMember>
-					<BlockGenusMember>cos</BlockGenusMember>
-					<BlockGenusMember>tan</BlockGenusMember>
-					<BlockGenusMember>random_range</BlockGenusMember>
-					<BlockGenusMember>map</BlockGenusMember>
-					<BlockGenusMember>toint</BlockGenusMember>
-					<BlockGenusMember>constrain</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.pins" button-color="29 152 155" type="factory">
-					<BlockGenusMember>pin-read-digital</BlockGenusMember>
-					<BlockGenusMember>pin-read-analog</BlockGenusMember>
-					<BlockGenusMember>pin-write-digital</BlockGenusMember>
-					<BlockGenusMember>pin-write-analog</BlockGenusMember>
-					<BlockGenusMember>pin-toggle</BlockGenusMember>
-					<BlockGenusMember>tone</BlockGenusMember>
-					<BlockGenusMember>tone_time</BlockGenusMember>
-					<BlockGenusMember>no_tone</BlockGenusMember>
-					<BlockGenusMember>DDRA</BlockGenusMember>
-					<BlockGenusMember>PORTA</BlockGenusMember>
-					<BlockGenusMember>PORT_FIX</BlockGenusMember>
-					<BlockGenusMember>PINA</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.number" button-color="232 156 149" type="factory">
-					<BlockGenusMember>number</BlockGenusMember>
-					<BlockGenusMember>setter_variable_number</BlockGenusMember>
-					<BlockGenusMember>variable_number</BlockGenusMember>
-					<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
-					<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
-					<BlockGenusMember>setter_variable_digital</BlockGenusMember>
-					<BlockGenusMember>variable_digital</BlockGenusMember>
-					<BlockGenusMember>digital-low</BlockGenusMember>
-					<BlockGenusMember>digital-high</BlockGenusMember>
-					<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
-					<BlockGenusMember>variable_number_double</BlockGenusMember>
-					<BlockGenusMember>number_double</BlockGenusMember>
-					<BlockGenusMember>setter_variable_char</BlockGenusMember>
-					<BlockGenusMember>variable_poly</BlockGenusMember>
-					<BlockGenusMember>char</BlockGenusMember>
-					<BlockGenusMember>setter_variable_String</BlockGenusMember>
-					<BlockGenusMember>variable_String</BlockGenusMember>
-					<BlockGenusMember>message</BlockGenusMember>
-					<BlockGenusMember>create_variable_vector</BlockGenusMember>
-					<BlockGenusMember>variable_vector</BlockGenusMember>
-					<BlockGenusMember>setter_variable_vector</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.time" button-color="100 255 0" type="factory" is-open="yes">
-					<BlockGenusMember>delay</BlockGenusMember>
-					<BlockGenusMember>delay_microseconds</BlockGenusMember>
-					<BlockGenusMember>millis</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.lcd" button-color="205 133 63" type="factory">
-					<BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember>
-					<BlockGenusMember>LCD_command_lightOff</BlockGenusMember>
-					<BlockGenusMember>LCD_PLL_Sainsmart_16by2</BlockGenusMember>
-					<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
-					<BlockGenusMember>number-single-fixed-parallel</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.servo" button-color="205 133 63" type="factory">
-					<BlockGenusMember>servo_default</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.serial" button-color="255 255 255" type="factory">
-					<BlockGenusMember>serial_available</BlockGenusMember>
-					<BlockGenusMember>serial_available2</BlockGenusMember>
-					<BlockGenusMember>serial_read</BlockGenusMember>
-					<BlockGenusMember>serial_parseInt</BlockGenusMember>
-					<BlockGenusMember>serial_write</BlockGenusMember>
-					<BlockGenusMember>serial_print</BlockGenusMember>
-					<BlockGenusMember>glue_sn</BlockGenusMember>
-					<BlockGenusMember>glue_sb</BlockGenusMember>
-					<BlockGenusMember>glue_poly</BlockGenusMember>
-					<BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
-					<BlockGenusMember>Serialplus_send_variable_digital</BlockGenusMember>
-					<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
-					<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.wire" button-color="255 255 255" type="factory">
-					<BlockGenusMember>wire_write</BlockGenusMember>
-					<BlockGenusMember>wire_read</BlockGenusMember>
-					<BlockGenusMember>wire_isread</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.eeprom" button-color="0 50 45" type="factory">
-					<BlockGenusMember>eeprom_read_int</BlockGenusMember>
-					<BlockGenusMember>eeprom_write_int</BlockGenusMember>
-					<BlockGenusMember>eeprom_read_long</BlockGenusMember>
-					<BlockGenusMember>eeprom_write_long</BlockGenusMember>
-					<BlockGenusMember>eeprom_read</BlockGenusMember>
-					<BlockGenusMember>eeprom_write</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.sd" button-color="0 50 45" type="factory">
-					<BlockGenusMember>sd_write2</BlockGenusMember>
-					<BlockGenusMember>MaSD_Connect</BlockGenusMember>
-					<BlockGenusMember>MaSD_file</BlockGenusMember>
-					<BlockGenusMember>MaSD_Write</BlockGenusMember>
-					<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
-					<BlockGenusMember>MaSD_separator</BlockGenusMember>
-				</BlockDrawer>
-				<BlockDrawer name="bd.code" button-color="120 120 120" type="factory">
-					<BlockGenusMember>code_head</BlockGenusMember>
-					<BlockGenusMember>code_setup</BlockGenusMember>
-					<BlockGenusMember>code_loop</BlockGenusMember>
-				</BlockDrawer>
+	<BlockDrawerSets>
+		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
+			<BlockDrawer name="bd.functions" type="factory" is-open="yes" button-color="255 255 0">
+				<BlockGenusMember>setup</BlockGenusMember>
+				<BlockGenusMember>loop</BlockGenusMember>
+				<BlockGenusMember>subroutine</BlockGenusMember>
+				<BlockGenusMember>subroutine-ref</BlockGenusMember>
+				<BlockGenusMember>subroutine_var</BlockGenusMember>
+				<BlockGenusMember>subroutine-ref_var</BlockGenusMember>
+				<BlockGenusMember>ref_var</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 128 0">
+				<BlockGenusMember>if</BlockGenusMember>
+				<BlockGenusMember>ifelse</BlockGenusMember>
+				<BlockGenusMember>while</BlockGenusMember>
+				<BlockGenusMember>do_while</BlockGenusMember>
+				<BlockGenusMember>repeat_times</BlockGenusMember>
+				<BlockGenusMember>repeat</BlockGenusMember>
+				<BlockGenusMember>repeat_control</BlockGenusMember>
+				<BlockGenusMember>break</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.logic" button-color="255 163 82" type="factory">
+				<BlockGenusMember>true</BlockGenusMember>
+				<BlockGenusMember>false</BlockGenusMember>
+				<BlockGenusMember>greater</BlockGenusMember>
+				<BlockGenusMember>less</BlockGenusMember>
+				<BlockGenusMember>equal</BlockGenusMember>
+				<BlockGenusMember>greater_equal</BlockGenusMember>
+				<BlockGenusMember>less_equal</BlockGenusMember>
+				<BlockGenusMember>not_equal</BlockGenusMember>
+				<BlockGenusMember>equal_digital</BlockGenusMember>
+				<BlockGenusMember>not_equal_digital</BlockGenusMember>
+				<BlockGenusMember>equal_poly</BlockGenusMember>
+				<BlockGenusMember>not_equal_poly</BlockGenusMember>
+				<BlockGenusMember>equal_string</BlockGenusMember>
+				<BlockGenusMember>not_equal_string</BlockGenusMember>
+				<BlockGenusMember>and</BlockGenusMember>
+				<BlockGenusMember>or</BlockGenusMember>
+				<BlockGenusMember>not</BlockGenusMember>
+				<BlockGenusMember>string_equal</BlockGenusMember>
+				<BlockGenusMember>string_empty</BlockGenusMember>
+				<BlockGenusMember>string_toInt</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.operators" button-color="114 147 71" type="factory">
+				<BlockGenusMember>addition</BlockGenusMember>
+				<BlockGenusMember>subtraction</BlockGenusMember>
+				<BlockGenusMember>multiplication</BlockGenusMember>
+				<BlockGenusMember>division</BlockGenusMember>
+				<BlockGenusMember>modulo</BlockGenusMember>
+				<BlockGenusMember>abs</BlockGenusMember>
+				<BlockGenusMember>pow</BlockGenusMember>
+				<BlockGenusMember>sqrt</BlockGenusMember>
+				<BlockGenusMember>sin</BlockGenusMember>
+				<BlockGenusMember>cos</BlockGenusMember>
+				<BlockGenusMember>tan</BlockGenusMember>
+				<BlockGenusMember>random_range</BlockGenusMember>
+				<BlockGenusMember>map</BlockGenusMember>
+				<BlockGenusMember>toint</BlockGenusMember>
+				<BlockGenusMember>constrain</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.pins" button-color="29 152 155" type="factory">
+				<BlockGenusMember>pin-read-digital</BlockGenusMember>
+				<BlockGenusMember>pin-read-analog</BlockGenusMember>
+				<BlockGenusMember>pin-write-digital</BlockGenusMember>
+				<BlockGenusMember>pin-write-analog</BlockGenusMember>
+				<BlockGenusMember>pin-toggle</BlockGenusMember>
+				<BlockGenusMember>tone</BlockGenusMember>
+				<BlockGenusMember>tone_time</BlockGenusMember>
+				<BlockGenusMember>no_tone</BlockGenusMember>
+				<BlockGenusMember>DDRA</BlockGenusMember>
+				<BlockGenusMember>PORTA</BlockGenusMember>
+				<BlockGenusMember>PORT_FIX</BlockGenusMember>
+				<BlockGenusMember>PINA</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.number" button-color="232 156 149" type="factory">
+				<BlockGenusMember>number</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number</BlockGenusMember>
+				<BlockGenusMember>variable_number</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
+				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
+				<BlockGenusMember>setter_variable_digital</BlockGenusMember>
+				<BlockGenusMember>variable_digital</BlockGenusMember>
+				<BlockGenusMember>digital-low</BlockGenusMember>
+				<BlockGenusMember>digital-high</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
+				<BlockGenusMember>variable_number_double</BlockGenusMember>
+				<BlockGenusMember>number_double</BlockGenusMember>
+				<BlockGenusMember>setter_variable_char</BlockGenusMember>
+				<BlockGenusMember>variable_poly</BlockGenusMember>
+				<BlockGenusMember>char</BlockGenusMember>
+				<BlockGenusMember>setter_variable_String</BlockGenusMember>
+				<BlockGenusMember>variable_String</BlockGenusMember>
+				<BlockGenusMember>message</BlockGenusMember>
+				<BlockGenusMember>create_variable_vector</BlockGenusMember>
+				<BlockGenusMember>variable_vector</BlockGenusMember>
+				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.time" button-color="100 255 0" type="factory" is-open="yes">
+				<BlockGenusMember>delay</BlockGenusMember>
+				<BlockGenusMember>delay_microseconds</BlockGenusMember>
+				<BlockGenusMember>millis</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.lcd" button-color="205 133 63" type="factory">
+				<BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember>
+				<BlockGenusMember>LCD_command_lightOff</BlockGenusMember>
+				<BlockGenusMember>LCD_PLL_Sainsmart_16by2</BlockGenusMember>
+				<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
+				<BlockGenusMember>number-single-fixed-parallel</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.servo" button-color="205 133 63" type="factory">
+				<BlockGenusMember>servo_default</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.serial" button-color="255 255 255" type="factory">
+				<BlockGenusMember>serial_available</BlockGenusMember>
+				<BlockGenusMember>serial_available2</BlockGenusMember>
+				<BlockGenusMember>serial_read</BlockGenusMember>
+				<BlockGenusMember>serial_parseInt</BlockGenusMember>
+				<BlockGenusMember>serial_write</BlockGenusMember>
+				<BlockGenusMember>serial_print</BlockGenusMember>
+				<BlockGenusMember>glue_sn</BlockGenusMember>
+				<BlockGenusMember>glue_sb</BlockGenusMember>
+				<BlockGenusMember>glue_poly</BlockGenusMember>
+				<BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
+				<BlockGenusMember>Serialplus_send_variable_digital</BlockGenusMember>
+				<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
+				<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.wire" button-color="255 255 255" type="factory">
+				<BlockGenusMember>wire_write</BlockGenusMember>
+				<BlockGenusMember>wire_read</BlockGenusMember>
+				<BlockGenusMember>wire_isread</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.eeprom" button-color="0 50 45" type="factory">
+				<BlockGenusMember>eeprom_read_int</BlockGenusMember>
+				<BlockGenusMember>eeprom_write_int</BlockGenusMember>
+				<BlockGenusMember>eeprom_read_long</BlockGenusMember>
+				<BlockGenusMember>eeprom_write_long</BlockGenusMember>
+				<BlockGenusMember>eeprom_read</BlockGenusMember>
+				<BlockGenusMember>eeprom_write</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.sd" button-color="0 50 45" type="factory">
+				<BlockGenusMember>sd_write2</BlockGenusMember>
+				<BlockGenusMember>MaSD_Connect</BlockGenusMember>
+				<BlockGenusMember>MaSD_file</BlockGenusMember>
+				<BlockGenusMember>MaSD_Write</BlockGenusMember>
+				<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
+				<BlockGenusMember>MaSD_separator</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="bd.code" button-color="120 120 120" type="factory">
+				<BlockGenusMember>code_head</BlockGenusMember>
+				<BlockGenusMember>code_setup</BlockGenusMember>
+				<BlockGenusMember>code_loop</BlockGenusMember>
+			</BlockDrawer>
 
-				<!-- Shapes are automatically loaded as blocks in the Shapes drawer (see slcodeblocks.ShapeBlocksGenerator for details) -->
-				<!-- Sound blocks reside in the auto-generated String drawer. (see slcodeblocks.SoundBlocksGenerator for details) -->
-			</BlockDrawerSet>
-		</BlockDrawerSets>
+			<!-- Shapes are automatically loaded as blocks in the Shapes drawer (see slcodeblocks.ShapeBlocksGenerator for details) -->
+			<!-- Sound blocks reside in the auto-generated String drawer. (see slcodeblocks.SoundBlocksGenerator for details) -->
+		</BlockDrawerSet>
+	</BlockDrawerSets>
 
-		<Pages drawer-with-page="yes">
-			<Page page-name="Main" page-width="400" page-color="128 128 128"/>
-		</Pages>
+	<Pages drawer-with-page="yes">
+		<Page page-name="Main" page-width="400" page-color="128 128 128"/>
+	</Pages>
 
-		<TrashCan>
+	<TrashCan>
 			<OpenTrashImage>com/ardublock/block/trash_open.png</OpenTrashImage>
 			<ClosedTrashImage>com/ardublock/block/trash.png</ClosedTrashImage>
 		</TrashCan>

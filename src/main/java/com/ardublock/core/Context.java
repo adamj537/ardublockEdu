@@ -39,7 +39,7 @@ public class Context
 	private Set<OpenblocksFrameListener> ofls;
 	private boolean isInArduino = false;
 	private String arduinoVersionString = ARDUINO_VERSION_UNKNOWN;
-	private OsType osType; 
+	private OsType osType;
 
 	final public static String APP_NAME = "ArduBlock Education Edition";
 //	final public static String VERSION_STRING = " ";
@@ -112,16 +112,27 @@ public class Context
 		workspaceEmpty = true;
 	}
 	
+	/**
+	 * Creates the default Arduino program we see when the program starts.
+	 */
 	private void loadDefaultArdublockProgram()
 	{
 		Workspace workspace = workspaceController.getWorkspace();
 		Page page = workspace.getPageNamed("Main");
 
 		FactoryManager manager = workspace.getFactoryManager();
-		Block newBlock;
-		newBlock = new Block(workspace, "loop", false);
+		
+		// Add a "setup" block.
+		Block newBlock = new Block(workspace, "setup", false);
 		FactoryRenderableBlock factoryRenderableBlock = new FactoryRenderableBlock(workspace, manager, newBlock.getBlockID());
 		RenderableBlock renderableBlock = factoryRenderableBlock.createNewInstance();
+		renderableBlock.setLocation(100, 50);
+		page.addBlock(renderableBlock);
+		
+		// Add a "loop" block.
+		newBlock = new Block(workspace, "loop", false);
+		factoryRenderableBlock = new FactoryRenderableBlock(workspace, manager, newBlock.getBlockID());
+		renderableBlock = factoryRenderableBlock.createNewInstance();
 		renderableBlock.setLocation(100, 100);
 		page.addBlock(renderableBlock);
 	}
