@@ -1383,6 +1383,32 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+		<BlockGenus name="servo_sg90" kind="command" color="0 127 255"  initlabel="bg.servo">
+			<description>
+				<text>Servo SG90</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.pin_number">
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
+					<DefaultArg genus-name="number" label="90" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="servo_mg996r" kind="command" color="0 127 255"  initlabel="bg.servo">
+			<description>
+				<text>Servo MG996R</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
+					<DefaultArg genus-name="number" label="90" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
 		<!--****************** Serial Port (UART) *************** -->
 
 		<BlockGenus name="serial_available" kind="data" color="0 0 255" initlabel="bg.serial_available">
@@ -2187,42 +2213,6 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="plug" />
 			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="servo_sg90" kind="command" color="205 133 63"  initlabel="bg.servo">
-			<description>
-				<text>SG90</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.pin_number">
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
-					<DefaultArg genus-name="number" label="90" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/SG90.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="servo_mg996r" kind="command" color="205 133 63"  initlabel="bg.servo">
-			<description>
-				<text>Servo MG996R</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
-					<DefaultArg genus-name="number" label="90" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/SG90.png</FileLocation>
-				</Image>
-			</Images>
 		</BlockGenus>
 
 		<BlockGenus name="serial_read_poly" kind="data" color="245 245 245" initlabel="bg.serial_read">
