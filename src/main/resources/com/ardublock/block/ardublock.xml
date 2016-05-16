@@ -68,7 +68,7 @@
 		<BlockGenus name="subroutine_var" kind="command" color="255 128 0" initlabel="bg.subroutine_var" is-starter="yes" is-terminator="yes" label-unique="yes" editable-label="yes">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="">
-					<DefaultArg genus-name="ref_var" label="variable_transmise" />
+					<DefaultArg genus-name="ref_var" label="value" />
 				</BlockConnector>
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
