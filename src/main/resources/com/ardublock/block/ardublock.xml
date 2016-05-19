@@ -76,7 +76,7 @@
 
 		<BlockGenus name="subroutine-ref_var" kind="command" color="255 128 0" initlabel="bg.subroutine_var" editable-label="yes">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.transmit">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
 					<DefaultArg genus-name="number" label="2" />
 				</BlockConnector>
 			</BlockConnectors>
