@@ -31,7 +31,6 @@ public class TranslatorBlockFactory
 		shortClassName.put("noTone", "com.ardublock.translator.block.NoToneBlock");
 	}
 	
-	
 	public TranslatorBlock buildTranslatorBlock(Translator translator, Long blockId, String blockName, String codePrefix, String codeSuffix, String label)
 	{
 //		System.out.println("block name : " + blockName + " captured");
