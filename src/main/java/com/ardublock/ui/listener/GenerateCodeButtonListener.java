@@ -216,7 +216,6 @@ public class GenerateCodeButtonListener implements ActionListener
 				}
 			}
 			JOptionPane.showMessageDialog(parentFrame, uiMessageBundle.getString("ardublock.translator.exception.subroutineNotDeclared"), "Error", JOptionPane.ERROR_MESSAGE);
-			
 		}
 		
 		if (success)

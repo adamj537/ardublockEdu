@@ -130,8 +130,9 @@ public class Translator
 			// For each setup command...
 			for (String command:setupCommand)
 			{
-				// Add the command, plus a newline.
-				setupFunction.append(command + "\n");
+				// Add the command.  Newline has already been included in
+				// SetupBlock.java, which generates the setup commands.
+				setupFunction.append(command);
 			}
 		}
 
