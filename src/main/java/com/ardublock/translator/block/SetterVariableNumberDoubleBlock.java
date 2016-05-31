@@ -27,7 +27,7 @@ public class SetterVariableNumberDoubleBlock extends TranslatorBlock
 
 		String ret = tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
-		ret = ret + " = " + tb.toCode() + " ;\n";
+		ret = ret + " = " + tb.toCode() + ";\n";
 		//ret = ret + " = " + "(double)" + tb.toCode() + " ;\n";
 		return ret;
 	}

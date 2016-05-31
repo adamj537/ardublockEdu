@@ -75,36 +75,70 @@ public class Translator
 		return headerCommand.toString() + generateSetupFunction();
 	}
 	
+	/**
+	 * Generate code for the Arduino "setup" function.
+	 * @return a string containing the code for the setup function
+	 */
 	public String generateSetupFunction()
 	{
+		// Create a string builder object that we can append code to.
 		StringBuilder setupFunction = new StringBuilder();
+		
+		// Start by adding the setup function's initialization.
 		setupFunction.append("void setup()\n{\n");
 		
+		// If there are input pins that need initialization...
 		if (!inputPinSet.isEmpty())
 		{
+			// For each input pin...
 			for (String pinNumber:inputPinSet)
 			{
+				// Add a line of code to initialize the pin.
 				setupFunction.append("pinMode(" + pinNumber + ", INPUT);\n");
 			}
 		}
+		
+		// If there are output pins that need initialization...
 		if (!outputPinSet.isEmpty())
 		{
+			// If we previously printed input pin code...
+			if (!inputPinSet.isEmpty())
+			{
+				// Add an extra newline.
+				setupFunction.append("\n");
+			}
+			
+			// For each output pin...
 			for (String pinNumber:outputPinSet)
 			{
+				// Add a line of code to initialize the pin.
 				setupFunction.append("pinMode(" + pinNumber + ", OUTPUT);\n");
 			}
 		}
 		
+		// If there are setup commands (these are from blocks the user places
+		// in the setup block)...
 		if (!setupCommand.isEmpty())
 		{
+			// If we previously printed input or output pin code...
+			if ((!inputPinSet.isEmpty()) || (!outputPinSet.isEmpty()))
+			{
+				// Add an extra newline.
+				setupFunction.append("\n");
+			}
+			
+			// For each setup command...
 			for (String command:setupCommand)
 			{
+				// Add the command, plus a newline.
 				setupFunction.append(command + "\n");
 			}
 		}
 
+		// Add the closing bracket, and two newlines.
 		setupFunction.append("}\n\n");
 		
+		// Convert the stringbuilder object to a string and return it.
 		return setupFunction.toString();
 	}
 	
@@ -150,8 +184,10 @@ public class Translator
 	
 	public void addSetupCommand(String command)
 	{
+		// If the command isn't already in the list of setup commands...
 		if (!setupCommand.contains(command))
 		{
+			// Add the command.
 			setupCommand.add(command);
 		}
 	}

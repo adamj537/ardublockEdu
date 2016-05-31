@@ -82,7 +82,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="ref_var" kind="data" color="  0 135 135" initlabel="bg.ref_var" editable-label="yes">
+		<BlockGenus name="ref_var" kind="data" color="0 135 135" initlabel="bg.ref_var" editable-label="yes">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
