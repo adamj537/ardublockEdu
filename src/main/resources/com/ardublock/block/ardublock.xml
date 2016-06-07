@@ -2114,7 +2114,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="random" kind="data" color="149 193 31" initlabel="bg.random">
 			<description>
 				<text>generate a random number less than the number</text>
@@ -2161,7 +2160,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-
 		<BlockGenus name="LEVEL1" kind="data" color="214 169 54" initlabel="bg.LEVEL1" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug"/>
@@ -2172,7 +2170,6 @@
 				<BlockConnector connector-type="boolean" connector-kind="plug"/>
 			</BlockConnectors>		
 		</BlockGenus>
-
 
 		<BlockGenus name="number_long" kind="data" color="255 153 204 " initlabel="bg.number_long" editable-label="yes">
 			<description>

@@ -12,10 +12,21 @@ Installation
 ----
 After building this, copy the target/ardublock-all.jar to Arduino\tools\ArduBlockTool\tool.  Then open the Arduino IDE, and go to Tools --> ArduBlock Education Edition.
 
+To Do List
+-----
+Most of the features I'd like to implement have to do with functions with arguments.  There's currently a block that allows you to create your own function with a single argument, and it must be an integer.
+* There's a bug in the function-with-argument block that causes a compiler error if you use the default argument.  Fixing this is my top priority.
+* Figure out how to support multiple function arguments.  Maybe with a "glue" operator?
+* Make variable type change based on what you add to function
+* Add help documentation.
+* Translate comments into code.
+
 Authors
 ----
 * Adam Johnson adamj537@gmail.com
+
 Authors of the original version:
+----
 * David Li taweili@gmail.com
 * HE Qichen heqichen@gmail.com
 
