@@ -22,9 +22,6 @@
 		<BlockConnectorShape shape-type="poly-inv" shape-number="12" />
 		<BlockConnectorShape shape-type="proc-param" shape-number="13" />
 		<BlockConnectorShape shape-type="cmd" shape-number="14" />
-		<BlockConnectorShape shape-type="cmd1" shape-number="15" />
-		<BlockConnectorShape shape-type="cmd2" shape-number="16" />
-		<BlockConnectorShape shape-type="cmd3" shape-number="17" />
 	</BlockConnectorShapes>
 
 	<BlockGenuses>

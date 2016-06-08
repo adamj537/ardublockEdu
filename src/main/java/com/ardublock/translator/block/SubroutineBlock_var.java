@@ -14,21 +14,35 @@ public class SubroutineBlock_var extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
+		// Form a string with the function's name.
 		String subroutineName = label.trim();
-		String var;
-		String ret;
 		
-		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(0);
-		var = translatorBlock.toCode();
-		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
+		// Fetch the function's argument block.
+		TranslatorBlock translatorBlock = getRequiredTranslatorBlockAtSocket(0);
 		
-		ret = "void " + subroutineName + "(int " + var + ")\n{\n";
+		// Translate it to a string.
+		String var = translatorBlock.toCode();
+		
+		// Form the function's header.
+		String ret = "void " + subroutineName + "(int " + var + ")\n{\n";
+		
+		// Fetch the function's body.
+		translatorBlock = this.getTranslatorBlockAtSocket(1);
+		
+		// While there's an unprocessed block in the function's body...
 		while (translatorBlock != null)
 		{
+			// Append the next block's code.
 			ret = ret + translatorBlock.toCode();
+			
+			// Fetch the next block.
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
+		
+		// Add closing bracket.
 		ret = ret + "}\n\n";
+		
+		// Return the resulting code.
 		return ret;
 	}
 }
