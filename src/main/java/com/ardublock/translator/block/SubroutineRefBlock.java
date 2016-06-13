@@ -19,6 +19,6 @@ public class SubroutineRefBlock extends TranslatorBlock
 		{
 			throw new SubroutineNotDeclaredException(blockId);
 		}
-		return "\t"+subroutineName + "();\n";
+		return "\t" + subroutineName + "();\n";
 	}
 }
