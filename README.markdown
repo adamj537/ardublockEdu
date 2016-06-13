@@ -12,6 +12,19 @@ Installation
 ----
 After building this, copy the target/ardublock-all.jar to Arduino\tools\ArduBlockTool\tool.  Then open the Arduino IDE, and go to Tools --> ArduBlock Education Edition.
 
+Building The Project
+----
+This project is written in Java, so you can use [Netbeans](http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html) or [Eclipse](https://eclipse.org/) to modify and compile it.  I (Adam) am using Netbeans.  This project also uses a build manager called [Maven](https://maven.apache.org/), which nicely ensures that most dependancies are downloaded to your computer when you compile for the first time.
+If you want to modify ArduBlock, and are also using Netbeans, there are a few things you need to do:
+* Clone this repository.  Hopefully that's an obvious step :)
+* Clone the [openblocks](https://github.com/taweili/openblocks) repository.  Openblocks is the code that makes all the pretty blocky shapes, and must be on your machine.
+* Open both projects in Netbeans.  With Netbeans, there's not a central project file you can click to open the project.  Instead, you must first open Netbeans, and use Netbeans to open the project.
+* The first time you build, make sure you have an internet connection, as Maven will need to download dependancies.
+* Build openblocks.
+* Build arduBlock.
+** Netbeans will complain about [not knowing what the "main" class is](http://stackoverflow.com/questions/20601845/no-main-class-found-in-netbeans).  To fix that, right-click on your Project in the project explorer, click on Properties --> Run --> Set "Main Class" to "com.ardublock.Main".
+** Netbeans may complain about not being able to download the pde-1.0.jar file.  To fix that, go to the Netbeans Project Explorer and navigate to ArduBlock --> Dependancies --> Right-click on pde-1.0.jar and click "Manually install artifact".  Browse to the pde.jar file included in the lib folder of the ardublock repository.
+
 To Do List
 -----
 Most of the features I'd like to implement have to do with functions with arguments.  There's currently a block that allows you to create your own function with a single argument, and it must be an integer.
