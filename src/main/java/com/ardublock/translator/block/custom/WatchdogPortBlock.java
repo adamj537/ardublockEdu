@@ -4,9 +4,9 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 
+// TODO:  Delete this and use VariableFakeBlock instead?
 public class WatchdogPortBlock extends TranslatorBlock
 {
-
 	public WatchdogPortBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);

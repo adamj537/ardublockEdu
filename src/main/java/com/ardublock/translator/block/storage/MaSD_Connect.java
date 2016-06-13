@@ -7,6 +7,7 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class MaSD_Connect extends TranslatorBlock
 {
+	// TODO:  Remove the MaSD library and ensure that the SD library is complete.
 	public MaSD_Connect(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);

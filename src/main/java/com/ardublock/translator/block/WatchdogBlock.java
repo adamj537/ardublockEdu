@@ -4,6 +4,8 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
+// TODO:  Is there actually an Arduino watchdog library?
+// TODO:  Add Watchdog, Watchdog Reset blocks to Ardublock?
 public class WatchdogBlock extends TranslatorBlock
 {
 	public WatchdogBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)

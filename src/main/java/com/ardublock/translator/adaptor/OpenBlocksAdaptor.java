@@ -54,5 +54,4 @@ public class OpenBlocksAdaptor implements BlockAdaptor
 			return translatorBlock;
 		}
 	}
-	
 }

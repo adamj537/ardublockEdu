@@ -5,6 +5,7 @@ import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
+// TODO:  Can I delete this class?
 public class SDWrite2Block extends TranslatorBlock
 {
 	public SDWrite2Block(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
