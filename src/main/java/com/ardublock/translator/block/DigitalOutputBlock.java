@@ -6,8 +6,6 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class DigitalOutputBlock extends TranslatorBlock
 {
-	public static final String ARDUBLOCK_DIGITAL_WRITE_DEFINE = "void __ardublockDigitalWrite(int pinNumber, boolean status)\n{\npinMode(pinNumber, OUTPUT);\ndigitalWrite(pinNumber, status);\n}\n";
-	
 	public DigitalOutputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -16,7 +14,10 @@ public class DigitalOutputBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
+		// Fetch the pin number argument.
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
+		
+		// If the pin is a constant (a pin we're always using as an output)...
 		if (translatorBlock instanceof NumberBlock)
 		{
 			String number = translatorBlock.toCode();
@@ -31,16 +32,22 @@ public class DigitalOutputBlock extends TranslatorBlock
 			ret = ret + ");\n";
 			return ret;
 		}
+		// If the pin is a variable (i.e. it might not always be an output)...
 		else
 		{
-			translator.addDefinitionCommand(ARDUBLOCK_DIGITAL_WRITE_DEFINE);
-			String ret = "__ardublockDigitalWrite(";
+			// Fetch the pin's name.
+			String pin = translatorBlock.toCode();
 			
-			ret = ret + translatorBlock.toCode();
-			ret = ret + ", ";
+			// Set the pin direction to output.
+			String ret = "pinMode(" + pin + ", OUTPUT);\n";
+			
+			// Fetch the desired output level.
 			translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-			ret = ret + translatorBlock.toCode();
-			ret = ret + ");\n";
+			String status = translatorBlock.toCode();
+			
+			// Set the pin's output level.
+			ret += "digitalWrite(" + pin + ", " + status + ");\n";
+			
 			return ret;
 		}
 	}

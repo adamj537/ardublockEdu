@@ -13,6 +13,14 @@ public class VariableFakeBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
+		// If the variable is new...
+		if (!translator.doesVariableExist(label))
+		{
+			// Remember it.
+			translator.addVariable(label);
+		}
+		
+		// Form the C code.
 		return codePrefix + label + codeSuffix;
 	}
 }

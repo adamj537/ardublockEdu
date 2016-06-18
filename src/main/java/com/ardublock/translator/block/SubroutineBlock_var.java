@@ -23,8 +23,32 @@ public class SubroutineBlock_var extends TranslatorBlock
 		// Translate it to a string.
 		String var = translatorBlock.toCode();
 		
-		// Form the function's header.
-		String ret = "void " + subroutineName + "(int " + var + ")\n{\n";
+		// TODO:  Prevent the variable from having a global initialization.
+		//			I've sort of done this already, in VariableFakeBlock.java.
+		// TODO:  Figure out how to do multiple arguments.
+		
+		// Start forming the function's header.
+		String ret = "void " + subroutineName + "(";
+		
+		// If the argument is an integer...
+		if ((translatorBlock instanceof VariableFakeBlock) ||
+			(translatorBlock instanceof VariableNumberBlock))
+		{
+			ret += "int " + var;
+		}
+		// If the argument is a double...
+		else if (translatorBlock instanceof VariableNumberDoubleBlock)
+		{
+			ret += "double " + var;
+		}
+		// If the argument is a large integer...
+		else if (translatorBlock instanceof VariableNumberUnsignedLongBlock)
+		{
+			ret += "unsigned long " + var;
+		}
+		
+		// Finish the function's header.
+		ret += ")\n{\n";
 		
 		// Fetch the function's body.
 		translatorBlock = this.getTranslatorBlockAtSocket(1);

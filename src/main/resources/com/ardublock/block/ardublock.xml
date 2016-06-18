@@ -747,6 +747,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+					<DefaultArg genus-name="number" label="13" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket">
 					<DefaultArg genus-name="digital-high" label="HIGH" />
@@ -760,6 +761,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+					<DefaultArg genus-name="number" label="0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket">
 					<DefaultArg genus-name="number" label="255" />
@@ -1324,7 +1326,7 @@
 					<DefaultArg genus-name="variable_fake" label="Table" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.position">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="number" label="0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="1" />
