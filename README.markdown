@@ -1,3 +1,5 @@
+Note:  I (Adam) have been notified that there is a bug which prevents ArduBlockEdu from working with the Arduino software v.1.6.12 or later.  I've not yet fixed this, but it's on my to-do list.
+
 ArduBlock Education Edition
 ======
 ArduBlock is a Block Programming Language for Arduino. The language and functions model closely to [Arduino Language Reference](http://arduino.cc/en/Reference/HomePage).
