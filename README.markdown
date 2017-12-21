@@ -30,11 +30,13 @@ If you want to modify ArduBlock, and are also using Netbeans, there are a few th
 To Do List
 -----
 Most of the features I'd like to implement have to do with functions with arguments.  There's currently a block that allows you to create your own function with a single argument, and it must be an integer.
+* Make it work with the latest version of Arduino (see note above).
 * There's a bug in the function-with-argument block that causes a compiler error if you use the default argument.  Fixing this is my top priority.
 * Figure out how to support multiple function arguments.  Maybe with a "glue" operator?
 * Make variable type change based on what you add to function
 * Add help documentation.
 * Translate comments into code.
+* Fix the "save as picture" feature.
 
 Authors
 ----
