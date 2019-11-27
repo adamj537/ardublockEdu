@@ -16,7 +16,7 @@ After building this, copy the target/ardublock-all.jar to Arduino\tools\ArduBloc
 
 Building The Project
 ----
-This project is written in Java, so you can use [Netbeans](http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html) or [Eclipse](https://eclipse.org/) to modify and compile it.  I (Adam) am using Netbeans.  This project also uses a build manager called [Maven](https://maven.apache.org/), which nicely ensures that most dependancies are downloaded to your computer when you compile for the first time.
+This project is written in Java, so you can use [Netbeans](https://netbeans.org/downloads/index.html) (if you're unsure what version, try Java SE; also the installer will prompt you to install the JDK) or [Eclipse](https://eclipse.org/) to modify and compile it.  I (Adam) am using Netbeans.  This project also uses a build manager called [Maven](https://maven.apache.org/), which nicely ensures that most dependancies are downloaded to your computer when you compile for the first time.  Also, if using Netbeans, note that [the most recent JDK may not work with it](https://stackoverflow.com/questions/43546590/netbeans-cant-open-project-or-anything)  JDK 8 works well.
 If you want to modify ArduBlock, and are also using Netbeans, there are a few things you need to do:
 * Clone this repository.  Hopefully that's an obvious step :)
 * Clone the [openblocks](https://github.com/taweili/openblocks) repository.  Openblocks is the code that makes all the pretty blocky shapes, and must be on your machine.

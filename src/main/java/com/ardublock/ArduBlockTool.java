@@ -15,6 +15,7 @@ import processing.app.tools.Tool;
 import com.ardublock.core.Context;
 import com.ardublock.ui.ArduBlockToolFrame;
 import com.ardublock.ui.listener.OpenblocksFrameListener;
+import java.lang.reflect.InvocationTargetException;
 
 public class ArduBlockTool implements Tool, OpenblocksFrameListener
 {
@@ -78,7 +79,40 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 	
 	public void didGenerate(String source)
 	{
-		ArduBlockTool.editor.setText(source);
+		java.lang.reflect.Method method;
+		
+		// This code block is part of a bug fix for the following issue:
+		// https://github.com/arduino/Arduino/issues/5454
+		try
+		{
+			// pre Arduino 1.6.12
+			Class ed = ArduBlockTool.editor.getClass();
+			Class[] cArg = new Class[1];
+			cArg[0] = String.class;
+			method = ed.getMethod("setText", cArg);
+			method.invoke(ArduBlockTool.editor, source);
+		}
+		catch (IllegalAccessException e)
+		{
+//			ArduBlockTool.editor.setText(source);
+		}
+		catch (IllegalArgumentException e)
+		{
+//			ArduBlockTool.editor.setText(source);
+		}
+		catch (NoSuchMethodException e)
+		{
+//			ArduBlockTool.editor.setText(source);
+		}
+		catch (SecurityException e)
+		{
+//			ArduBlockTool.editor.setText(source);
+		}
+		catch (InvocationTargetException e)
+		{
+//			ArduBlockTool.editor.setText(source);
+		}
+		
 		ArduBlockTool.editor.handleExport(false);
 	}
 	
