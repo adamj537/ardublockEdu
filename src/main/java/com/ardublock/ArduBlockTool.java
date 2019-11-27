@@ -1,3 +1,12 @@
+/**
+ * @file	ArduBlockTool.java
+ * @brief	Interface with Arduino IDE
+ * @remarks	ArduBlock is a "tool" plugin for the Arduino IDE.  An example of
+ *			how to make tool plugin thingies is here:
+ *			https://github.com/arduino/Arduino/tree/master/build/shared/tools
+ *			https://github.com/ryanfobel/Mangler
+ */
+
 package com.ardublock;
 
 import java.io.BufferedReader;
@@ -22,6 +31,13 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 	static Editor editor;
 	static ArduBlockToolFrame openblocksFrame;
 	
+	/**
+	 * @brief	Called when the Arduino editor first opens.
+	 * @remarks	This means you don't have access to a sketch object, or a GUI,
+	 * and should only do minimal setup. (However it'd be a good idea to stash
+	 * the "Editor" object for later.)
+	 * @param editor - object to refer to the Arduino IDE
+	 */
 	public void init(Editor editor)
 	{
 		if (ArduBlockTool.editor == null)
@@ -38,6 +54,9 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 		}
 	}
 
+	/**
+	 * @brief	Called by Arduino IDE when the tool is selected from the menu.
+	 */
 	public void run()
 	{
 		try
@@ -52,6 +71,10 @@ public class ArduBlockTool implements Tool, OpenblocksFrameListener
 		}
 	}
 
+	/**
+	 * @brief	Tells the Arduino IDE the title to put in the Tools menu.
+	 * @return	name of the tool
+	 */
 	public String getMenuTitle()
 	{
 		return Context.APP_NAME;
